@@ -7,10 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav>
+    <% if current_user %>
+      <%= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log In", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
+    </nav>
     <%= yield %>
+    <%= javascript_pack_tag 'application'%>
   </body>
 </html>

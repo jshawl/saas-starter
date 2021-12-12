@@ -6,17 +6,8 @@
 <%= link_to "Edit Subscription", @portal %>
 <% else %>
 
-<button id='checkout-button' class='btn btn-outline-primary'>Add Payment Method</button>
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-var stripe = Stripe('<%= Rails.application.credentials.stripe[:public_api_key] %>');
-var checkoutButton = document.getElementById('checkout-button');
-checkoutButton.addEventListener('click', function() {
-  stripe.redirectToCheckout({
-    sessionId: '<%= @session.id %>'
-  }).then(function (result) {
-    alert(result.error.message)
-  });
-});
-</script>
+<%= form_tag subscribe_account_path do |f| %>
+  <button id='checkout-button' class='btn btn-outline-primary'>Subscribe to Metered Billing</button>
+<% end %>
+
 <% end %>

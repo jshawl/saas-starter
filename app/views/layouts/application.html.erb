@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <nav>
-    <% if current_user %>
-      <%= link_to "Account", account_path %>
-      <%= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path %>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
+    <h1><%= link_to "SaaS Starter", root_path %></h1>
+    <div>
+      <% if current_user %>
+        <%= link_to "Account", account_path %>
+        
+        <%= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+    </div>
     </nav>
-    <%= yield %>
+    <section>
+      <%= yield %>
+    </section>
     <%= javascript_pack_tag 'application'%>
   </body>
 </html>

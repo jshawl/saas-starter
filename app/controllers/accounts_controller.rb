@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_action :authenticate_user!
   def show
     if params[:session_id]
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])

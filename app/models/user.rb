@@ -17,4 +17,12 @@ class User < ApplicationRecord
       allow_promotion_codes: true
     )
   end
+
+  def increment_usage
+    subscription = Stripe::Subscription.retrieve(stripe_subscription_id)
+    Stripe::SubscriptionItem.create_usage_record(
+      subscription.items.first.id,
+      {quantity: 1, timestamp: Time.now.to_i},
+    )
+  end
 end

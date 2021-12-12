@@ -15,5 +15,38 @@
  */
 
 body {
-    padding: 2em;
+    font-family: sans-serif;
+}
+
+nav,
+section {
+    padding: 1em;
+}
+
+section {
+    padding-top: 2em;
+}
+
+nav {
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: inherit;
+}
+
+nav div a {
+    display: inline-block;
+    padding: 1em;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }

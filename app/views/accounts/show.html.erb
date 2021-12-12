@@ -6,8 +6,26 @@
 <%= link_to "Edit Subscription", @portal %>
 <% else %>
 
-<%= form_tag subscribe_account_path do |f| %>
-  <button id='checkout-button' class='btn btn-outline-primary'>Subscribe to Metered Billing</button>
+
+
+<h2>Products</h2>
+
+<% @products.each do |product| %>
+  <h3><%= product.name %></h3>
+  <% product.prices.each do |price| %>
+    <%= form_tag subscribe_account_path do %>
+      <%= hidden_field_tag :price_id, price.id %>
+      <%= hidden_field_tag :mode, price.recurring ? 'subscription' : 'payment' %>
+      <button>
+      <% if price.recurring %>
+        Subscribe <%= price.recurring.interval %>ly
+      <% else %>
+      Pay
+    <% end %>
+    <%= "$%.2f" % (price.unit_amount.to_f / 100) %>
+    </button>
+    <% end %>
+    <% end %>
 <% end %>
 
 <% end %>

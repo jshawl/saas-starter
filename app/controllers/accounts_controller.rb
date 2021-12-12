@@ -3,6 +3,7 @@ class AccountsController < ApplicationController
   def show
     if params[:session_id]
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+      p @session
       current_user.update(
         stripe_customer_id: @session.customer,
         stripe_subscription_id: @session.subscription
@@ -16,20 +17,31 @@ class AccountsController < ApplicationController
         return_url: account_url,
       })['url']
     end
+
+    @products = Stripe::Product.list.map do |p|
+      p.prices = Stripe::Price.list(product: p.id)
+      p
+    end
   end
 
   def subscribe
-    @session =  Stripe::Checkout::Session.create(
+    session_data = {
       payment_method_types: ['card'],
       customer: current_user.stripe_customer_id,
-      mode: 'subscription',
+      mode: params[:mode],
       line_items: [{
-        price: Rails.application.credentials.stripe[:metered_price_id]
+        price: params[:price_id]
       }],
       success_url: "#{account_url}?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{account_url}",
       allow_promotion_codes: true
-    )
+    }
+    @session = begin
+      Stripe::Checkout::Session.create(session_data)
+    rescue Stripe::InvalidRequestError => e
+      session_data[:line_items][0][:quantity] = "1"
+      Stripe::Checkout::Session.create(session_data)
+    end
     redirect_to @session.url
   end
 end

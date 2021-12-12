@@ -25,6 +25,11 @@
     <section>
       <%= yield %>
     </section>
+    <footer>
+      &copy; <%= Time.now.strftime("%Y") %> &middot;
+      <%= link_to "Terms of Service", legal_terms_path %> &middot;
+      <%= link_to "Privacy Policy", legal_privacy_path %>
+    </footer>
     <%= javascript_pack_tag 'application'%>
   </body>
 </html>

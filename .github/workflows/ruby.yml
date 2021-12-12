@@ -53,3 +53,8 @@ jobs:
         bundle exec rails db:migrate
         bundle exec rails assets:precompile
         bundle exec rake
+     - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: coverage

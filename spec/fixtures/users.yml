@@ -1,0 +1,7 @@
+alice:
+  email: alice@example.com
+
+bob:
+  email: bob@example.com
+  stripe_customer_id: 'cus_KlBjSL9RUTVun7'
+  stripe_subscription_id: 'sub_1K5fLsJ362eyYdB5oV3jJJam'

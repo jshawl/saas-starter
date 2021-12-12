@@ -12,6 +12,7 @@
   <body>
     <nav>
     <% if current_user %>
+      <%= link_to "Account", account_path %>
       <%= link_to "Log Out #{current_user.email}", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Log In", new_user_session_path %>

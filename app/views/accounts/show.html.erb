@@ -1,0 +1,25 @@
+<% if current_user.stripe_subscription_id %>
+<%= link_to "Edit Subscription", @portal %>
+<% else %>
+
+<button id='checkout-button' class='btn btn-outline-primary'>Add Payment Method</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('<%= Rails.application.credentials.stripe[:public_api_key] %>');
+var checkoutButton = document.getElementById('checkout-button');
+checkoutButton.addEventListener('click', function() {
+  stripe.redirectToCheckout({
+    // Make the id field from the Checkout Session creation API response
+    // available to this file, so you can provide it as argument here
+    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+    sessionId: '<%= @session.id %>'
+  }).then(function (result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+    alert(result.error.message)
+  });
+});
+</script>
+<% end %>

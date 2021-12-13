@@ -1,2 +1,4 @@
 theme: jekyll-theme-merlot
 show_downloads: true
+title: SaaS Starter
+description: A starting point for ruby on rails SaaS projects

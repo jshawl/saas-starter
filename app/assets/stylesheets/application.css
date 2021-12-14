@@ -22,6 +22,7 @@ body {
 
 body {
     font-family: sans-serif;
+    color: #333;
 }
 
 nav,
@@ -38,28 +39,4 @@ footer {
     border-top: 1px solid #ebebeb;
     color: #ccc;
     font-size: .8rem;
-}
-
-nav {
-    border-bottom: 1px solid #ebebeb;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav h1 {
-    font-size: inherit;
-}
-
-nav div a {
-    display: inline-block;
-    padding: 1em;
-}
-
-nav a {
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
 }

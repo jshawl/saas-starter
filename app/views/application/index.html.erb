@@ -1,1 +1,5 @@
-Edit this file at app/views/application/index.html.erb
+<% if current_user %>
+  <pre>&lt;App /></pre>
+<% else %>
+  <%= render 'public' %>
+<% end %>

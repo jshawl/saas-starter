@@ -7,7 +7,7 @@ RSpec.describe 'account', type: :feature do
     it 'shows payment details' do
       sign_in users(:alice)
       visit account_path
-      expect(page).to have_content('Add Payment Method')
+      expect(page).to have_content('Subscribe to Metered Billing')
     end
 
     it 'shows a link to the billing portal' do

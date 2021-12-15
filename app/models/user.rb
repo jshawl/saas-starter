@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :usages
 
   def increment_usage
     subscription = Stripe::Subscription.retrieve(stripe_subscription_id)

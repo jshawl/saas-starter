@@ -16,6 +16,8 @@ class AccountsController < ApplicationController
         return_url: account_url,
       })['url']
     end
+
+    @prices = Stripe::Price.list(active: true)
   end
 
   def subscribe
@@ -24,7 +26,7 @@ class AccountsController < ApplicationController
       customer: current_user.stripe_customer_id,
       mode: 'subscription',
       line_items: [{
-        price: Rails.application.credentials.stripe[:metered_price_id]
+        price: params[:price_id]
       }],
       success_url: "#{account_url}?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "#{account_url}",

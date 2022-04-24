@@ -12,8 +12,6 @@ gem 'rails', '~> 7.0.2.3', '>= 7.0.2.3'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "sprockets-rails"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

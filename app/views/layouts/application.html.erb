@@ -35,6 +35,6 @@
       <%= link_to "Privacy Policy", legal_privacy_path %>
       </div>
     </footer>
-    <%= javascript_pack_tag 'application'%>
+    <%= javascript_importmap_tags('./assets/application.js', shim: false) %>
   </body>
 </html>

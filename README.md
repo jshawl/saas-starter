@@ -1,6 +1,6 @@
 # Ruby on Rails SaaS Starter Template
 
-![CI](https://github.com/jshawl/saas-starter/actions/workflows/ruby.yml/badge.svg)
+[![CI](./actions/workflows/ruby.yml/badge.svg)](./actions)
 
 ## Motivation
 

@@ -1,5 +1,7 @@
 # Ruby on Rails SaaS Starter Template
 
+![Ruby](https://github.com/jshawl/saas-starter/actions/workflows/ruby.yml/badge.svg)
+
 ## Motivation
 
 I'm tired of Frankensteining a bunch of existing code from other apps to create

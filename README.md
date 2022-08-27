@@ -12,7 +12,6 @@ new SaaS projects. I want to templatize all the things I usually add to new SaaS
 - Headless browser testing with rspec
   - GitHub actions run tests
 - Devise authentication and User model
-- Stripe Checkout
 
 ## Goals & Vision
 

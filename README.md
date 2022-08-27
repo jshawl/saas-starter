@@ -17,7 +17,10 @@ new SaaS projects. I want to templatize all the things I usually add to new SaaS
 
 Provide a starting point for new service experiments. Include tested examples of the following features:
 
-- Metered Billing
+- [ ] Donate / one-time payment
+- [ ] Gated asset
+- [ ] Metered Billing
+- [ ] Recurring Subscriptions
 - Plan Subscription Billing
 - Functionality is restricted for those in dunning
 

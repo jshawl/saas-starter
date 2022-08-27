@@ -21,8 +21,7 @@ Provide a starting point for new service experiments. Include tested examples of
 - [ ] Gated asset
 - [ ] Metered Billing
 - [ ] Recurring Subscriptions
-- Plan Subscription Billing
-- Functionality is restricted for those in dunning
+- [ ] Transactional emails for receipts / renewals / failures
 
 ## Local Setup
 

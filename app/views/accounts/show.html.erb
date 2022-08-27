@@ -2,12 +2,7 @@
 <p>Logged in as <%= current_user.email %></p>
 
 <h2>Billing Details</h2>
-<% if current_user.stripe_subscription_id %>
-<%= link_to "Edit Subscription", @portal %>
-<% else %>
 
 <%= form_tag subscribe_account_path do |f| %>
   <button id='checkout-button' class='btn btn-outline-primary'>Subscribe to Metered Billing</button>
-<% end %>
-
 <% end %>

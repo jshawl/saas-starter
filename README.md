@@ -30,13 +30,7 @@ cd saas-starter
 bundle install
 ```
 
-`$ rails credentials:edit` and add the following:
-
-```
-stripe:
-  public_api_key: pk_test_your_public_key_here
-  secret_key: pk_test_your_secret_key_here
-```
+`$ EDITOR=vim rails credentials:edit` to add/edit secrets
 
 ```
 rails db:create db:migrate

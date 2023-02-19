@@ -1,0 +1,7 @@
+AllCops:
+    SuggestExtensions: false
+    NewCops: enable
+    Exclude:
+      - bin/*
+      - db/**/*.rb
+      - config/**/*.rb

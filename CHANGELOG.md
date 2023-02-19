@@ -1,6 +1,6 @@
 # Changelog
 
-## [2024-01-07](https://github.com/jshawl/saas-starter/releases/tag/v2.1.0)
+## [2023-01-07](https://github.com/jshawl/saas-starter/releases/tag/v2.1.0)
 
 - remove stripe by @jshawl in [#16](https://github.com/jshawl/saas-starter/pull/16)
 - upgrade ruby dependencies by @jshawl in [#17](https://github.com/jshawl/saas-starter/pull/17)

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add rubocop and fix offenses.
+
 ## [2023-01-07](https://github.com/jshawl/saas-starter/releases/tag/v2.1.0)
 
 - remove stripe by @jshawl in [#16](https://github.com/jshawl/saas-starter/pull/16)

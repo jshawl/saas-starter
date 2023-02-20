@@ -7,8 +7,8 @@ module PayPal
       url = "#{BASE_URL}/v1/billing/subscriptions"
       PayPal.handle_response HTTParty.post(url, {
                                              headers: PayPal::Authorization.headers,
-                                             body: 
-                                             {plan_id: plan_id}.to_json
+                                             body:
+                                             { plan_id: }.to_json
                                            }).body
     end
 

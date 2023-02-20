@@ -24,11 +24,5 @@ module PayPal
         ]
       }
     end
-
-    def self.handle_response(response)
-      data = JSON.parse(response)
-      response = Struct.new(:id, :status, :links, :payment_source, :purchase_units, :payer, keyword_init: true)
-      response.new(data)
-    end
   end
 end

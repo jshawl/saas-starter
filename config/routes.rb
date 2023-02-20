@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :payments do
     post 'capture', to: 'payments#capture'
   end
+
+  resources :plans
+  
   namespace :legal do 
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'

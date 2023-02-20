@@ -12,6 +12,20 @@ module PayPal
                                            }).body
     end
 
+    def self.list
+      url = "#{BASE_URL}/v1/billing/plans"
+      PayPal.handle_response HTTParty.get(url, {
+                                            headers: PayPal::Authorization.headers
+                                          }).body
+    end
+
+    def self.find(product_id)
+      url = "#{BASE_URL}/v1/billing/plans/#{product_id}"
+      PayPal.handle_response HTTParty.get(url, {
+                                            headers: PayPal::Authorization.headers
+                                          }).body
+    end
+
     # rubocop:disable Metrics/MethodLength
     def self.payload(opts)
       { product_id: opts[:product_id],

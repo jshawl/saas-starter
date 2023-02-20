@@ -5,15 +5,15 @@ module PayPal
   class Order
     def self.create!(amount)
       url = "#{BASE_URL}/v2/checkout/orders"
-      handle_response HTTParty.post(url, {
-                                      headers: PayPal::Authorization.headers,
-                                      body: payload(amount).to_json
-                                    }).body
+      PayPal.handle_response HTTParty.post(url, {
+                                             headers: PayPal::Authorization.headers,
+                                             body: payload(amount).to_json
+                                           }).body
     end
 
     def self.capture!(id)
       url = "#{BASE_URL}/v2/checkout/orders/#{id}/capture"
-      handle_response HTTParty.post(url, headers: PayPal::Authorization.headers).body
+      PayPal.handle_response HTTParty.post(url, headers: PayPal::Authorization.headers).body
     end
 
     def self.payload(amount)

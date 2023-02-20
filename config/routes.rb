@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :plans
-  
+  resources :subscriptions
+
   namespace :legal do 
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'

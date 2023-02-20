@@ -1,5 +1,5 @@
 <h2><%= @payment.paypal_id %></h2>
 created at <time><%= @payment.created_at %></time>
 <pre>
-<%= JSON.pretty_generate(JSON.parse(@payment.details || '{}')) %>
+<%= JSON.pretty_generate(JSON.parse(@payment.details.to_json || '{}')) %>
 </pre>

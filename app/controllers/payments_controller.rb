@@ -16,7 +16,8 @@ class PaymentsController < ApplicationController
   end
 
   def index
-    @payments = current_user.payments
+    @payments = current_user.payments.orders
+    @subscriptions = current_user.payments.subscriptions
   end
 
   def show

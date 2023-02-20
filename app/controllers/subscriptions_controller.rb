@@ -9,4 +9,10 @@ class SubscriptionsController < ApplicationController
     current_user.payments.create(paypal_subscription_id: subscription.id)
     render json: subscription.to_h
   end
+
+  def show
+    @subscription = Rails.cache.fetch("subscription-#{params[:id]}", expires_in: 10.minutes) do
+      PayPal::Subscription.find(params[:id])
+    end
+  end
 end

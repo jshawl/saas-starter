@@ -11,5 +11,12 @@ module PayPal
                                              { plan_id: }.to_json
                                            }).body
     end
+
+    def self.find(id)
+      url = "#{BASE_URL}/v1/billing/subscriptions/#{id}"
+      PayPal.handle_response HTTParty.get(url, {
+                                            headers: PayPal::Authorization.headers
+                                          }).body
+    end
   end
 end

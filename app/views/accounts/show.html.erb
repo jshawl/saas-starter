@@ -6,28 +6,8 @@
 <br />
 
 <% if @payments.any? %>
-  <%= link_to "View payments", payments_path %><br />
+  <%= link_to "View past payments", payments_path %><br />
 <% end %>
 
-<h3>Make a one-time purchase</h3>
-<div id='paypal-button-container'></div>
-<script src="https://www.paypal.com/sdk/js?disable-funding=credit&client-id=<%= Rails.application.credentials.dig(:paypal, :client_id) %>"></script>
-
-<script>
-paypal.Buttons({
-  createOrder: async (data, actions) => {
-    const response = await fetch("/payments", {
-      method: "POST"
-    })
-    const order = await response.json()
-    return order.id
-  },
-  onApprove: async (data, actions) => {
-    const response = await fetch(`/payments/${data.orderID}/capture`, {
-      method: "POST"
-    })
-    const order = await response.json()
-    window.location = `/payments/${order.id}`
-  }
-}).render('#paypal-button-container');
-</script>
+<%= link_to "Make a one time payment", new_payment_path %><br />
+<%= link_to "Subscribe", plans_path %>

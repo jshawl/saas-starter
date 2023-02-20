@@ -5,3 +5,7 @@ AllCops:
       - bin/*
       - db/**/*.rb
       - config/**/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb

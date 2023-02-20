@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   resources :payments do
     post 'capture', to: 'payments#capture'
   end
+
+  resources :plans, only: [:index]
+  resources :subscriptions, only: [:create, :show] do
+    post 'confirm', to: 'subscriptions#confirm'
+  end
+
   namespace :legal do 
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'

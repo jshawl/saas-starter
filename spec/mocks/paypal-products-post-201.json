@@ -1,0 +1,23 @@
+{
+  "id": "PROD-XYAB12ABSB7868434",
+  "name": "Video Streaming Service",
+  "description": "Video streaming service",
+  "type": "SERVICE",
+  "category": "SOFTWARE",
+  "image_url": "https://example.com/streaming.jpg",
+  "home_url": "https://example.com/home",
+  "create_time": "2020-01-10T21:20:49Z",
+  "update_time": "2020-01-10T21:20:49Z",
+  "links": [
+    {
+      "href": "https://api-m.paypal.com/v1/catalogs/products/72255d4849af8ed6e0df1173",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/catalogs/products/72255d4849af8ed6e0df1173",
+      "rel": "edit",
+      "method": "PATCH"
+    }
+  ]
+}

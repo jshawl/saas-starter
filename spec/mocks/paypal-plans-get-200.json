@@ -1,0 +1,58 @@
+{
+  "total_items": 12,
+  "total_pages": 6,
+  "plans": [
+    {
+      "id": "P-5ML4271244454362WXNWU5NQ",
+      "product_id": "PROD-XXCD1234QWER65782",
+      "status": "ACTIVE",
+      "name": "Zoho Marketing Campaign  Plan",
+      "description": "Zoho Marketing Campaign Plan",
+      "create_time": "2018-12-10T21:20:49Z",
+      "links": [
+        {
+          "href": "https://api-m.paypal.com/v1/billing/plans/P-5ML4271244454362WXNWU5NQ",
+          "rel": "self",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "id": "P-6LL4271454454362WXNWU5NQ",
+      "product_id": "PROD-XXCD1234QWER65782",
+      "status": "ACTIVE",
+      "name": "Zoho Marketing Campaign Basic Plan",
+      "description": "Zoho Marketing Campaign Plan",
+      "create_time": "2019-01-10T21:20:49Z",
+      "links": [
+        {
+          "href": "https://api-m.paypal.com/v1/billing/plans/P-6LL4271454454362WXNWU5NQ",
+          "rel": "self",
+          "method": "GET"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href": "https://api-m.paypal.com/v1/billing/plans?product_id=PROD-XXCD1234QWER65782&page_size=2&page=1",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/billing/plans?product_id=PROD-XXCD1234QWER65782&page_size=2&page=1",
+      "rel": "first",
+      "method": "GET"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/billing/plans?product_id=PROD-XXCD1234QWER65782&page_size=2&page=2",
+      "rel": "next",
+      "method": "GET"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/billing/plans?product_id=PROD-XXCD1234QWER65782&page_size=2&page=6",
+      "rel": "last",
+      "method": "GET"
+    }
+  ]
+}

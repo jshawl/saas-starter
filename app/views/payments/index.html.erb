@@ -7,3 +7,13 @@
   </li>
 <% end %>
 </ol>
+
+<h2>Subscriptions</h2>
+<ol>
+<% @subscriptions.each do |subscription| %>
+  <li>
+  <%= link_to subscription.paypal_subscription_id, subscription_path(id: subscription.paypal_subscription_id) %>
+  <small><time><%= subscription.created_at %></time></small>
+  </li>
+<% end %>
+

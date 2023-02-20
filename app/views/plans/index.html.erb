@@ -1,0 +1,44 @@
+<h2>Plans</h2>
+
+<script src="https://www.paypal.com/sdk/js?vault=true&disable-funding=credit&client-id=<%= Rails.application.credentials.dig(:paypal, :client_id) %>"></script>
+
+<% @plans.each do |plan| %>
+  <%#= plan.inspect %>
+  <h3><%= plan[:name] %></h3>
+  <p><%= plan[:description] %></p>
+  <%= number_to_currency(plan[:billing_cycles][0]["pricing_scheme"]["fixed_price"]["value"])%>
+  <%= plan[:billing_cycles][0]["frequency"]["interval_unit"].downcase %>ly
+  <div id='paypal-button-container'></div>
+<script>
+paypal.Buttons({
+  createSubscription: async (data, actions) => {
+   const response = await fetch("/subscriptions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({plan_id:"<%= plan[:id] %>"})
+    })
+    const subscription = await response.json()
+    return subscription.id
+  },
+  onApprove: async (data, actions) => {
+    const response = await fetch(`/subscriptions/${data.subscriptionID}/confirm`, {
+      method: "POST"
+    })
+    console.log(data)
+  }
+}).render('#paypal-button-container');
+</script>
+<% end %>
+
+
+
+<hr />
+
+<p>Create one in the rails console!</p>
+
+<pre>
+product = PayPal::Product.create!(name: 'Example product', description: 'example product description')
+plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', description: 'example plan description')
+</pre>

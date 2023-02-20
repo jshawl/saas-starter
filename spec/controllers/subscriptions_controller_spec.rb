@@ -28,4 +28,16 @@ RSpec.describe 'Subscriptions', type: :request do
     get '/subscriptions/I-BW452GLLEP1G'
     expect(response.body).to match('I-BW452GLLEP1G')
   end
+
+  it 'confirms the subscription on approve' do
+    stub_request(:get, 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G')
+      .to_return(status: 200, body: File.read('spec/mocks/paypal-subscription-get-200.json'))
+    users(:alice).payments.create(paypal_subscription_id: 'I-BW452GLLEP1G')
+    expect(users(:alice).active_subscription?).to be(false)
+    post '/subscriptions/I-BW452GLLEP1G/confirm'
+    expect(users(:alice).active_subscription?).to be(true)
+    expect(response.body).to match('I-BW452GLLEP1G')
+  end
+
+  it 'downgrades the subscription on website cancellation'
 end

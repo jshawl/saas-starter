@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :payments
 
-  def has_active_subscription?
-    payments.subscriptions.active
+  def active_subscription?
+    payments.subscriptions.active.any?
   end
 end

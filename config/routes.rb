@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     post 'capture', to: 'payments#capture'
   end
 
-  resources :plans
-  resources :subscriptions
+  resources :plans, only: [:index]
+  resources :subscriptions, only: [:create, :show]
 
   namespace :legal do 
     get 'terms', to: 'legal#terms'

@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    render json: PayPal::Order.create!.to_h
+    render json: PayPal::Order.create!(amount: { currency_code: 'USD', value: '1.23' }).to_h
   end
 
   def capture

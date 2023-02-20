@@ -1,5 +1,9 @@
 # Changelog
 
+## [2023-02-20](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.20)
+
+- Add Subscriptions
+
 ## [2023-02-19](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.19)
 
 - Add rubocop and fix offenses.

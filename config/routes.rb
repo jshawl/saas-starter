@@ -3,11 +3,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'application#index'
-  resource :account do
-    post 'purchase', to: 'accounts#purchase'
-    post 'purchase-capture', to: 'accounts#purchase_capture'
+  resource :account
+  resources :payments do
+    post 'capture', to: 'payments#capture'
   end
-  namespace :legal do
+  namespace :legal do 
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'
   end

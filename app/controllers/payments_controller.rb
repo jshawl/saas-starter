@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
 
   def capture
     order = PayPal::Order.capture!(params[:payment_id])
-    current_user.payments.create!(paypal_id: order.id, details: order.to_json)
+    current_user.payments.create!(paypal_id: order.id, details: order.to_h)
     render json: order
   end
 

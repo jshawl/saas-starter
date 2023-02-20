@@ -23,6 +23,9 @@ paypal.Buttons({
     return subscription.id
   },
   onApprove: async (data, actions) => {
+    const response = await fetch(`/subscriptions/${data.subscriptionID}/confirm`, {
+      method: "POST"
+    })
     console.log(data)
   }
 }).render('#paypal-button-container');
@@ -38,5 +41,4 @@ paypal.Buttons({
 <pre>
 product = PayPal::Product.create!(name: 'Example product', description: 'example product description')
 plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', description: 'example plan description')
-
 </pre>

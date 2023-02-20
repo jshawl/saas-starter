@@ -8,4 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :payments
+
+  def has_active_subscription?
+    payments.subscriptions.active
+  end
 end

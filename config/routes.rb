@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :plans, only: [:index]
-  resources :subscriptions, only: [:create, :show]
+  resources :subscriptions, only: [:create, :show] do
+    post 'confirm', to: 'subscriptions#confirm'
+  end
 
   namespace :legal do 
     get 'terms', to: 'legal#terms'

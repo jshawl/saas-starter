@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2023-02-19](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.19)
 
 - Add rubocop and fix offenses.
 - Add one time payment with PayPal.
@@ -9,7 +9,6 @@
 
 - remove stripe by @jshawl in [#16](https://github.com/jshawl/saas-starter/pull/16)
 - upgrade ruby dependencies by @jshawl in [#17](https://github.com/jshawl/saas-starter/pull/17)
-
 
 ## [2022-07-22](https://github.com/jshawl/saas-starter/releases/tag/v2.0.1)
 

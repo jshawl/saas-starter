@@ -1,0 +1,9 @@
+<h2>Payments</h2>
+<ol>
+<% @payments.each do |payment| %>
+  <li>
+  <%= link_to payment.paypal_id, payment_path(id: payment.paypal_id) %>
+  <small><time><%= payment.created_at %></time></small>
+  </li>
+<% end %>
+</ol>

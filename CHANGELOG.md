@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add rubocop and fix offenses.
+- Add one time payment with PayPal.
 
 ## [2023-01-07](https://github.com/jshawl/saas-starter/releases/tag/v2.1.0)
 

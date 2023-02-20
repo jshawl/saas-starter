@@ -3,7 +3,8 @@
 # Accounts routes
 class AccountsController < ApplicationController
   before_action :authenticate_user!
-  def show; end
 
-  def subscribe; end
+  def show
+    @payments = current_user.payments
+  end
 end

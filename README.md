@@ -31,6 +31,14 @@ bundle install
 
 `$ EDITOR=vim rails credentials:edit` to add/edit secrets
 
+You'll need a paypal client id and secret:
+
+```
+paypal:
+  client_id: abc123
+  secret: xyz789
+```
+
 ```
 rails db:create db:migrate
 ```

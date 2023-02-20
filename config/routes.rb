@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'application#index'
   resource :account do
-    post 'subscribe', to: 'accounts#subscribe'
+    post 'purchase', to: 'accounts#purchase'
+    post 'purchase-capture', to: 'accounts#purchase_capture'
   end
   namespace :legal do
     get 'terms', to: 'legal#terms'

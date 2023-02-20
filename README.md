@@ -12,11 +12,13 @@ new SaaS projects. I want to templatize all the things I usually add to new SaaS
 - Headless browser testing with rspec
   - GitHub actions run tests
 - Devise authentication and User model
+- Credit Card Payments with PayPal
 
 ## Goals & Vision
 
 Provide a starting point for new service experiments. Include tested examples of the following features:
 
+- One time payment
 - Metered Billing
 - Plan Subscription Billing
 - Functionality is restricted for those in dunning

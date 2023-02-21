@@ -16,6 +16,7 @@ module PayPal
       PayPal.handle_response HTTParty.post(url, headers: PayPal::Authorization.headers).body
     end
 
+    # rubocop:disable Metrics/MethodLength
     def self.payload(amount)
       {
         intent: 'CAPTURE',
@@ -31,5 +32,6 @@ module PayPal
         }
       }
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end

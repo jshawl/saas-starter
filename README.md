@@ -40,3 +40,10 @@ rake
 ### GitHub actions
 
 Add a repository secret `RAILS_MASTER_KEY` on GitHub with the value from `config/master.key`.
+
+## Monitoring & Maintenance
+
+```
+fly logs
+fly ssh console -C "app/bin/rails console"
+```

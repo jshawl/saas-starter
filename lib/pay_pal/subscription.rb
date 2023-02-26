@@ -8,7 +8,10 @@ module PayPal
       PayPal.handle_response HTTParty.post(url, {
                                              headers: PayPal::Authorization.headers,
                                              body:
-                                             { plan_id: }.to_json
+                                             { plan_id:,
+                                               application_context: {
+                                                 shipping_preference: 'NO_SHIPPING'
+                                               } }.to_json
                                            }).body
     end
 

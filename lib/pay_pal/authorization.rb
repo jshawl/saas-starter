@@ -23,7 +23,8 @@ module PayPal
     def self.headers
       {
         'Content-Type': 'application/json',
-        Authorization: "Bearer #{access_token}"
+        Authorization: "Bearer #{access_token}",
+        'PayPal-Request-Id': SecureRandom.uuid
       }
     end
   end

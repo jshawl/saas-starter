@@ -1,9 +1,6 @@
 <div class='public'>
-  <h2>My Awesome Product</h2>
+  <h1>SaaS Starter</h1>
   <p>And some more information here about why people should stay on the site. It's pretty great!</p>
-
-  <div>
-    <a href='#' class='btn btn-primary'>1st Thing</a>
-    <a href='#' class='btn btn-outline-primary'>2nd Thing</a>
-  </div>
+  <%= link_to "Sign Up", new_user_registration_path, class: 'button cta' %>
+  <%= link_to "Log In", new_user_session_path, class: 'button cta-light' %>
 </div>

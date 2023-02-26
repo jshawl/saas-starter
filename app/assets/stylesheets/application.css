@@ -14,10 +14,20 @@
  *= require_self
  */
 
+:root {
+    --primary: rebeccapurple;
+    --secondary: lavender;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     padding: 0;
     margin: 0;
+    line-height: 1.5;
 }
 
 body {
@@ -25,18 +35,92 @@ body {
     color: #333;
 }
 
-nav,
+.public {
+    padding: 2rem 0;
+}
+
+h1,
+h2 {
+    font-weight: lighter;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+h2 {
+    margin-top: 3rem;
+    font-size: 1.35rem;
+}
+
+.container {
+    max-width: 60rem;
+    margin: auto;
+}
+
 section,
 footer {
-    padding: 1em;
+    padding: 1em 2rem;
 }
 
-section {
-    padding: 2em 1em;
+nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    border-bottom: 1px solid var(--secondary);
 }
 
 footer {
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid var(--secondary);
     color: #ccc;
     font-size: .8rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a:hover,
+nav input:hover {
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+}
+
+nav a,
+nav input {
+    padding: 1rem;
+    color: inherit;
+    display: inline-block;
+    font: inherit;
+    border: none;
+    background: none;
+    text-decoration: none;
+}
+
+/**
+ * Elements
+ */
+
+.button {
+    display: inline-block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    border: 1px solid var(--primary);
+}
+
+.cta {
+    background: var(--primary);
+    color: white;
+}
+
+.cta-light {
+    color: var(--primary);
 }

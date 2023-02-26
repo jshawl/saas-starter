@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     post 'capture', to: 'payments#capture'
   end
 
+  get 'pricing', to: 'public#pricing'
+
   resources :plans, only: [:index]
   resources :subscriptions, only: [:create, :show] do
     post 'confirm', to: 'subscriptions#confirm'

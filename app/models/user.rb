@@ -9,7 +9,15 @@ class User < ApplicationRecord
 
   has_many :payments
 
+  after_create :send_welcome_email
+
   def active_subscription?
     payments.subscriptions.active.any?
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now!
   end
 end

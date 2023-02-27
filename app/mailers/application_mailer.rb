@@ -2,6 +2,6 @@
 
 # Base Mailer
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'mailer@saas-starter.app'
   layout 'mailer'
 end

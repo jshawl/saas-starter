@@ -25,7 +25,7 @@ You'll need a paypal client id and secret as well as a SendGrid API Key with ful
 paypal:
   client_id: abc123
   secret: xyz789
-sendgrid: abc123
+sendgrid: def456
 ```
 
 ```

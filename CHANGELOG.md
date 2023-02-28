@@ -1,5 +1,11 @@
 # Changelog
 
+## [2023-02-27](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.27)
+
+- Use Sendgrid via SMTP for ActionMailer
+- `User.create` sends a welcome email
+- Password reset emails are delivered and functional
+
 ## [2023-02-20](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.20)
 
 - Add Subscriptions

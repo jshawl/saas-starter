@@ -32,6 +32,15 @@ sendgrid: def456
 rails db:create db:migrate
 ```
 
+## Plan Management
+
+Plans default to $1 for getting up and running as quickly as possible. See `lib/pay_pal/plan.rb` for customizing plan creation options.
+
+```
+product = PayPal::Product.create!(name: 'Example product', description: 'example product description')
+plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', description: 'example plan description')
+```
+
 ### Running Tests
 
 ```

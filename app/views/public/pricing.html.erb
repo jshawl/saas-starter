@@ -1,9 +1,4 @@
 <h1>Pricing</h1>
+<p>Simple, predictable pricing. Cancel at any time.</p>
 
-<% @plans.each do |plan| %>
-  <%#= plan.inspect %>
-  <h3><%= plan[:name] %></h3>
-  <p><%= plan[:description] %></p>
-  <%= number_to_currency(plan[:billing_cycles][0]["pricing_scheme"]["fixed_price"]["value"])%>
-  <%= plan[:billing_cycles][0]["frequency"]["interval_unit"].downcase %>ly
-<% end %>
+<%= render "plans/pricing" %>

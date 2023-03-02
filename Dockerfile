@@ -13,7 +13,7 @@ ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
 
 ARG BUNDLE_WITHOUT=development:test
-ARG BUNDLE_PATH=vendor/bundle
+ARG BUNDLE_PATH=/usr/bundle
 ENV BUNDLE_PATH ${BUNDLE_PATH}
 ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
 
@@ -47,7 +47,7 @@ FROM build_deps as gems
 RUN gem install -N bundler -v ${BUNDLER_VERSION}
 
 COPY Gemfile* ./
-RUN bundle install &&  rm -rf vendor/bundle/ruby/*/cache
+RUN bundle install &&  rm -rf /usr/bundle/ruby/*/cache
 
 FROM build_deps as node_modules
 
@@ -74,7 +74,7 @@ RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
     ${PROD_PACKAGES} \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-COPY --from=gems /app /app
+COPY --from=gems /usr/bundle /usr/bundle
 COPY --from=node_modules /app/node_modules /app/node_modules
 
 ENV SECRET_KEY_BASE 1

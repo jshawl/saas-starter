@@ -14,7 +14,8 @@
 ```
 git clone git@github.com:jshawl/saas-starter.git
 cd saas-starter
-bundle install
+docker compose up --build
+docker compose exec web bash
 ```
 
 `$ EDITOR=vim rails credentials:edit` to add/edit secrets
@@ -29,7 +30,7 @@ sendgrid: def456
 ```
 
 ```
-rails db:create db:migrate
+docker compose exec web bin/bundle exec rails db:create db:migrate
 ```
 
 ### Running Tests

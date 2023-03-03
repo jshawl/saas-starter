@@ -15,7 +15,7 @@
  */
 
 :root {
-    --primary: rebeccapurple;
+    --primary: #5739ce;
     --secondary: lavender;
 }
 
@@ -139,6 +139,19 @@ nav input {
     border: none;
     background: none;
     text-decoration: none;
+}
+
+footer a {
+    color: var(--primary);
+}
+
+a {
+    text-decoration-color: #eeebee;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    text-decoration-color: var(--primary);
 }
 
 /**

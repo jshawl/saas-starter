@@ -11,14 +11,14 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <a class="navbar-brand" href="<%= root_path %>">SaaS Starter</a>
       <ul class="navbar-nav">
-        
+        <li><%= link_to "Docs", "/docs/" %></li>
         <% if current_user %>
           <li class="nav-item"><%= link_to "Account", account_path, class: 'nav-link' %></li>
           <li class="nav-item">
             <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
-        <li class="nav-item"><%= link_to "Pricing", pricing_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to "Pricing", pricing_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: 'nav-link' %></li>
         <% end %>
       </ul>

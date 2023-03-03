@@ -39,6 +39,36 @@ body {
     padding: 2rem 0;
 }
 
+.flex {
+    display: flex;
+}
+
+.plan {
+    border: 1px solid var(--secondary);
+    flex: 1;
+    padding: 1rem;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.plan :first-child {
+    margin-top: 0;
+}
+
+.plan:last-of-type {
+    background: var(--secondary);
+}
+
+.plan .unavailable {
+    text-decoration: line-through;
+    color: #c0c0c0;
+    padding-left: 1.25rem;
+}
+
 h1,
 h2 {
     font-weight: lighter;
@@ -52,6 +82,12 @@ h1 {
 h2 {
     margin-top: 3rem;
     font-size: 1.35rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: var(--primary);
 }
 
 .container {
@@ -114,6 +150,7 @@ nav input {
     padding: .5rem 1rem;
     text-decoration: none;
     border: 1px solid var(--primary);
+    cursor: pointer;
 }
 
 .cta {

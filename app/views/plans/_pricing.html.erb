@@ -1,0 +1,64 @@
+<div class='flex'>
+  <div class='plan'>
+    <h3>The Free Plan</h3>
+    <% if current_user %>
+      $0.00
+    <% else %>
+      <%= link_to "Free", new_user_registration_path,  class: 'button cta'   %>
+    <% end %>
+    <p>The basic plan that doesn't cost a dime.</p>
+    <hr />
+    <ul>
+      <li>✅ included feature!</li>
+      <li>✅ another included feature!</li>
+      <li class='unavailable'>another feature!</li>
+      <li class='unavailable'>last included feature!</li>
+    </ul>
+  </div>
+  <% @plans.each do |plan| %>
+    <div class='plan'>
+      <h3><%= plan[:name] %></h3>
+      <% if current_user %>
+        <p>
+          <%= number_to_currency(plan[:billing_cycles][0]["pricing_scheme"]["fixed_price"]["value"])%>
+          <%= plan[:billing_cycles][0]["frequency"]["interval_unit"].downcase %>ly
+        </p>
+        <div id='paypal-button-container'></div>
+        <script>
+        paypal.Buttons({
+          createSubscription: async (data, actions) => {
+          const response = await fetch("/subscriptions", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({plan_id:"<%= plan[:id] %>"})
+            })
+            const subscription = await response.json()
+            return subscription.id
+          },
+          onApprove: async (data, actions) => {
+            const response = await fetch(`/subscriptions/${data.subscriptionID}/confirm`, {
+              method: "POST"
+            })
+            console.log(data)
+          }
+        }).render('#paypal-button-container');
+        </script>
+      <% else %>
+        <%= link_to new_user_registration_path,  class: 'button cta'  do %>
+          <%= number_to_currency(plan[:billing_cycles][0]["pricing_scheme"]["fixed_price"]["value"])%>
+          <%= plan[:billing_cycles][0]["frequency"]["interval_unit"].downcase %>ly
+        <% end %>
+      <% end %>
+      <p><%= plan[:description] %></p>
+      <hr />
+      <ul>
+        <li>✅ included feature!</li>
+        <li>✅ another included feature!</li>
+        <li>✅ another feature!</li>
+        <li>✅ last included feature!</li>
+      </ul>
+    </div>
+  <% end %>
+</div>

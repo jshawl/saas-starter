@@ -1,5 +1,11 @@
 # Changelog
 
+## [2023-03-02](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.02)
+
+- Add `docker compose` for local development
+- Add a `/docs` site, powered by Jekyll
+- Use `ActiveConcern` for cached plans and pricing
+
 ## [2023-02-27](https://github.com/jshawl/saas-starter/releases/tag/v2023.02.27)
 
 - Use Sendgrid via SMTP for ActionMailer

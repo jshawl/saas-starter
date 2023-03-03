@@ -1,6 +1,8 @@
 # syntax = docker/dockerfile:experimental
 ARG RUBY_VERSION=2.7.3
 ARG VARIANT=jemalloc-slim
+
+# base image
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 ARG NODE_VERSION=16
@@ -31,6 +33,7 @@ ENV PATH $VOLTA_HOME/bin:/usr/local/bin:$PATH
 
 RUN volta install node@${NODE_VERSION} && volta install yarn
 
+# build_deps image
 FROM base as build_deps
 
 ARG DEV_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev"
@@ -42,6 +45,7 @@ RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
     apt-get install --no-install-recommends -y ${DEV_PACKAGES} \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# gems image
 FROM build_deps as gems
 
 RUN gem install -N bundler -v ${BUNDLER_VERSION}
@@ -49,6 +53,15 @@ RUN gem install -N bundler -v ${BUNDLER_VERSION}
 COPY Gemfile* ./
 RUN bundle install &&  rm -rf /usr/bundle/ruby/*/cache
 
+# docs image
+FROM gems as docs
+
+WORKDIR /app/docs
+COPY docs/ ./
+RUN bundle install
+RUN bundle exec jekyll build
+
+# node_modules image
 FROM build_deps as node_modules
 
 COPY package*json ./
@@ -76,6 +89,7 @@ RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
 
 COPY --from=gems /usr/bundle /usr/bundle
 COPY --from=node_modules /app/node_modules /app/node_modules
+COPY --from=docs /app/docs/_site /app/public/docs
 
 ENV SECRET_KEY_BASE 1
 

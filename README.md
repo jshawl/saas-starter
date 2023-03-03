@@ -39,6 +39,13 @@ docker compose exec web bin/bundle exec rails db:create db:migrate
 rake
 ```
 
+## Docs
+
+The docs site is a Jekyll site. You can cd into `docs/` and run `jekyll serve` to edit the site locally.
+
+During deployment, `jekyll build` is run inside the Dockerfile and copied into `public/docs`.
+
+
 ### GitHub actions
 
 Add a repository secret `RAILS_MASTER_KEY` on GitHub with the value from `config/master.key`.

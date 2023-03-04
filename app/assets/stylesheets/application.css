@@ -43,15 +43,27 @@ body {
     display: flex;
 }
 
+@media all and (max-width: 60rem) {
+    .flex {
+        display: block;
+    }
+}
+
 .plan {
     border: 1px solid var(--secondary);
     flex: 1;
     padding: 1rem;
 }
 
+@media all and (max-width: 60rem) {
+    .plan {
+        margin-bottom: 1rem;
+    }
+}
+
 .plan ul {
     list-style: none;
-    padding: 1rem 0;
+    padding: 0;
     margin: 0;
 }
 
@@ -70,7 +82,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-weight: lighter;
 }
 
@@ -80,14 +93,19 @@ h1 {
 }
 
 h2 {
-    margin-top: 3rem;
-    font-size: 1.35rem;
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
 }
 
 hr {
     border: none;
     height: 1px;
-    background: var(--primary);
+    background: var(--secondary);
+    margin: 2rem 0;
 }
 
 .container {
@@ -97,55 +115,18 @@ hr {
 
 section,
 footer {
-    padding: 1em 2rem;
-}
-
-nav {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--primary);
-    border-bottom: 1px solid var(--secondary);
+    padding: 1em 0;
 }
 
 footer {
     border-top: 1px solid var(--secondary);
     color: #ccc;
     font-size: .8rem;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a:hover,
-nav input:hover {
-    cursor: pointer;
-    background: var(--primary);
-    color: white;
-}
-
-nav a,
-nav input {
-    padding: 1rem;
-    color: inherit;
-    display: inline-block;
-    font: inherit;
-    border: none;
-    background: none;
-    text-decoration: none;
-}
-
-footer a {
-    color: var(--primary);
+    margin-top: 2rem;
 }
 
 a {
+    color: var(--primary);
     text-decoration-color: #eeebee;
     text-underline-offset: 2px;
 }
@@ -153,10 +134,6 @@ a {
 a:hover {
     text-decoration-color: var(--primary);
 }
-
-/**
- * Elements
- */
 
 .button {
     display: inline-block;
@@ -173,4 +150,16 @@ a:hover {
 
 .cta-light {
     color: var(--primary);
+}
+
+@media all and (max-width: 60rem) {
+    .public {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    section,
+    footer {
+        padding: 1rem;
+    }
 }

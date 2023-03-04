@@ -1,0 +1,36 @@
+form+a {
+  display: block;
+  margin-top: 1rem;
+}
+
+form .actions [type="submit"] {
+  margin-top: 1rem;
+  background: var(--primary);
+  border: none;
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+.new_user~br {
+  display: none;
+}
+
+.new_user~br+a {
+  margin-left: 1rem;
+}
+
+.new_user~a {
+  display: inline-block;
+}
+
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid var(--primary);
+  padding: .5rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  width: 20rem;
+}

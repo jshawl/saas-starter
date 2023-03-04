@@ -1,6 +1,14 @@
 <div class='public'>
-  <h1>SaaS Starter</h1>
-  <p>And some more information here about why people should stay on the site. It's pretty great!</p>
+  <h2>Ruby on Rails SaaS Starter Demo</h2>
+  <p>This application is a live demo of the 
+    <%= link_to "SaaS Starter template repository", "https://github.com/jshawl/saas-starter" %>.
+  </p>
   <%= link_to "Sign Up", new_user_registration_path, class: 'button cta' %>
-  <%= link_to "Log In", new_user_session_path, class: 'button cta-light' %>
+  <%= link_to "Log In", new_user_session_path, class: 'button cta-light' %><br /> <br />
+  <hr />
+  <ul>
+    <li><%= link_to "View the docs", "/docs" %></li>
+    <li><%= link_to "View the source code", "https://github.com/jshawl/saas-starter" %></li>
+    <li><%= link_to "Use the template", "https://github.com/jshawl/saas-starter/generate" %></li>
+  </ul>
 </div>

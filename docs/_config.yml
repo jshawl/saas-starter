@@ -26,3 +26,7 @@ callouts:
 theme: just-the-docs
 plugins:
   - jekyll-feed
+
+compress_html:
+  ignore:
+    envs: all

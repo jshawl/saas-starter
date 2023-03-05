@@ -51,6 +51,8 @@ plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', descri
 
 ## Configure Webhooks
 
+todo: https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_post
+
 This application will modify a user's subscription status when that user cancels
 a plan on paypal.com.
 

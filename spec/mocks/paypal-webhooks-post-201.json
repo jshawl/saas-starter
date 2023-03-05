@@ -1,0 +1,27 @@
+{
+  "id": "0EH40505U7160970P",
+  "url": "https://example.com/example_webhook",
+  "event_types": [
+    {
+      "name": "*",
+      "description": "ALL"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://api-m.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+      "rel": "update",
+      "method": "PATCH"
+    },
+    {
+      "href": "https://api-m.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+      "rel": "delete",
+      "method": "DELETE"
+    }
+  ]
+}

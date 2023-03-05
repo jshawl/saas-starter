@@ -9,8 +9,10 @@ title: Payments Configuration
   - [Create a Product](#create-a-product)
   - [Create a Plan](#create-a-plan)
 - [Configure Webhooks](#configure-webhooks)
-  - [Use the Webhooks Simulator](#use-the-webhooks-simulator)
-    - [Using `ngrok` for Local Webhook Testing](#using-ngrok-for-local-webhook-testing)
+  - [Using the Rails Console](#using-the-rails-console)
+  - [Using the PayPal Developer Dashboard](#using-the-paypal-developer-dashboard)
+- [Use the Webhooks Simulator](#use-the-webhooks-simulator)
+  - [Using `ngrok` for Local Webhook Testing](#using-ngrok-for-local-webhook-testing)
   - [Generate More Webhook Mocks](#generate-more-webhook-mocks)
 
 ## Create a PayPal REST API Application
@@ -56,18 +58,28 @@ todo: https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_post
 This application will modify a user's subscription status when that user cancels
 a plan on paypal.com.
 
-Visit the [developer dashboard](https://developer.paypal.com/dashboard/applications/sandbox)
-and click on the application you created earlier. Click "add webhook". At the
-time of this writing, only the `BILLING.SUBSCRIPTION.CANCELLED` event type is
-used to modify a user's subscription status in the application.
+### Using the Rails Console
 
-### Use the Webhooks Simulator
+```rb
+PayPal::Webhook.create("https://saas-starter.app/webhooks")
+```
+
+### Using the PayPal Developer Dashboard
+
+Visit the [developer dashboard](https://developer.paypal.com/dashboard/applications/sandbox)
+and click on the application you created earlier. Click "add webhook". Set the 
+webhook url to `https://saas-starter.app/webhooks`.
+
+At the time of this writing (2023-03), only the `BILLING.SUBSCRIPTION.CANCELLED` event 
+type is used to modify a user's subscription status in the application.
+
+## Use the Webhooks Simulator
 
 The [PayPal Webhooks Simulator](https://developer.paypal.com/dashboard/webhooksSimulator)
 allows you to send test events like `BILLING.SUBSCRIPTION.CANCELLED` to a
 staging or local environment to simulate buyer behaviors on paypal.com.
 
-#### Using `ngrok` for Local Webhook Testing
+### Using `ngrok` for Local Webhook Testing
 
 You can use `ngrok` to generate a public webhook url:
 

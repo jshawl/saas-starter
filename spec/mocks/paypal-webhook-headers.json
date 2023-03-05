@@ -1,0 +1,8 @@
+{
+  "paypal-transmission-id": "00000000-0000-0000-0000-000000000000",
+  "paypal-transmission-time": "2023-03-05T04:01:16Z",
+  "paypal-transmission-sig": "WW91IGZvdW5kIGFuIGVhc3RlciBlZ2ch",
+  "paypal-auth-version": "v2",
+  "paypal-cert-url": "https://api.paypal.com/v1/notifications/certs/CERT-00000000-00000000-00000000",
+  "paypal-auth-algo": "SHA256withRSA"
+}

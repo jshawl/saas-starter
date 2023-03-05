@@ -53,10 +53,14 @@ plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', descri
 
 ## Configure Webhooks
 
-todo: https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_post
-
 This application will modify a user's subscription status when that user cancels
 a plan on paypal.com.
+
+{: .note }
+
+Only the first webhook is used for verification. See `WebhooksController#create`
+for more details about how incoming webhooks are verified. Notably,
+`webhooks.first` is present.
 
 ### Using the Rails Console
 

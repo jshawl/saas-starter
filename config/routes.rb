@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'pricing', to: 'public#pricing'
 
+  post 'webhooks', to: 'public#webhooks'
+
   resources :plans, only: [:index]
   resources :subscriptions, only: [:create, :show] do
     post 'confirm', to: 'subscriptions#confirm'

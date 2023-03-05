@@ -12,6 +12,9 @@ Rails.application.configure do
 
   routes.default_url_options[:host] = "localhost:3000"
 
+  # Allow requests via ngrok for webhook testing
+  # config.hosts << /[a-z0-9\-]+\.ngrok\.io/
+
   # Do not eager load code on boot.
   config.eager_load = false
 

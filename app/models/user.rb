@@ -11,8 +11,13 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  def active_subscription
+    # TODO: should return an instance of payment, not an ar relation
+    payments.subscriptions.active.to_a.first
+  end
+
   def active_subscription?
-    payments.subscriptions.active.any?
+    !!active_subscription
   end
 
   private

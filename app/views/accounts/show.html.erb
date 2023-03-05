@@ -2,12 +2,31 @@
 <p>Logged in as <%= current_user.email %></p>
 
 <hr />
-<h2>Billing Details</h2>
-<br />
+
+<h3>Subscription Status</h3>
+
+<% if current_user.active_subscription %>
+  Last Payment: <%= current_user.active_subscription.details['billing_info']['last_payment']['time'] %> <br />
+  Next Billing Date: <%= current_user.active_subscription.details['billing_info']['next_billing_time'] %><br /><br />
+  <%= link_to "Manage Subscription", "https://www.sandbox.paypal.com/myaccount/autopay/connect/#{current_user.active_subscription.details['id']}", target: '_blank' %>
+  <br /><br />
+  <details>
+    <summary>Debug Info</summary>
+    <pre><%= JSON.pretty_generate(current_user.active_subscription.details) %></pre>
+  </details>
+
+<% else %>
+  <%= link_to "Subscribe", plans_path %>
+<% end %>
+
+
+
+<hr />
+<h3>Billing Details</h3>
 
 <% if @payments.any? %>
   <%= link_to "View past payments", payments_path %><br />
 <% end %>
 
 <%= link_to "Make a one time payment", new_payment_path %><br />
-<%= link_to "Subscribe", plans_path %>
+

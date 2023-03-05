@@ -25,10 +25,10 @@ RSpec.describe 'Webhooks', type: :request do
 
     payload = File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json')
     post '/webhooks', headers: {
-        'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     }, params: payload
-    expect(JSON.parse(payload)["resource"]["status"]).to eq("CANCELLED")
-    expect(Payment.last.details["status"]).to eq('CANCELLED')
+    expect(JSON.parse(payload)['resource']['status']).to eq('CANCELLED')
+    expect(Payment.last.details['status']).to eq('CANCELLED')
   end
 
   it 'ignores unverified webhook signatures' do

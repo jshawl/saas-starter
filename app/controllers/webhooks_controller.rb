@@ -19,10 +19,9 @@ class WebhooksController < ApplicationController
       logger.warn 'Webhook verification failed. Refusing to process webhook'
       return head 200
     end
-
     if params['event_type'] == 'BILLING.SUBSCRIPTION.CANCELLED'
       payment = Payment.find_by_paypal_subscription_id(params['resource']['id'])
-      payment.update(details: params['resource'])
+      payment.update!(details: params['resource'])
     end
     head 200
   end

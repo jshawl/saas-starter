@@ -6,7 +6,6 @@ RSpec.describe 'Webhooks', type: :request do
   fixtures :users
 
   before do
-    # TODO: fixtures for Payment
     users(:alice).payments.create(
       paypal_subscription_id: 'I-BW452GLLEP1G',
       details: {
@@ -23,7 +22,6 @@ RSpec.describe 'Webhooks', type: :request do
   it 'processes BILLING.SUBSCRIPTION.CANCELLED' do
     stub_request(:post, 'https://api-m.sandbox.paypal.com/v1/notifications/verify-webhook-signature')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-webhooks-verify-signature-post-200.json'))
-
     post '/webhooks', headers: {
       'Content-Type': 'application/json'
     }, params: File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json')

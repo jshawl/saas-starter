@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Payments Configuration
+nav_order: 2
 ---
 # Payments Configuration
 

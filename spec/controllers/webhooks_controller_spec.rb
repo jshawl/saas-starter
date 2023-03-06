@@ -27,17 +27,19 @@ RSpec.describe 'Webhooks', type: :request do
     post '/webhooks', headers: {
       'Content-Type': 'application/json'
     }, params: payload
-    expect(JSON.parse(payload)['resource']['status']).to eq('CANCELLED')
     expect(Payment.last.details['status']).to eq('CANCELLED')
   end
 
-  it 'ignores unverified webhook signatures' do
+  it 'raises on unverified webhook signatures' do
     stub_request(:post, 'https://api-m.sandbox.paypal.com/v1/notifications/verify-webhook-signature')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-webhooks-verify-signature-failure-post-200.json'))
 
-    post '/webhooks', headers: {
-      'Content-Type': 'application/json'
-    }, params: File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json')
+    expect do
+      post '/webhooks', headers: {
+        'Content-Type': 'application/json'
+      }, params: File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json')
+    end.to raise_error('Webhook verification failed!')
+
     expect(users(:alice).payments.last.details['status']).to eq('ACTIVE')
   end
 end

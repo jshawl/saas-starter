@@ -1,0 +1,32 @@
+{
+  "webhooks": [
+    {
+      "id": "0EH40505U7160970P",
+      "url": "https://129f-162-236-213-142.ngrok.io/webhooks",
+      "event_types": [
+        {
+          "name": "*",
+          "description": "ALL",
+          "status": "ENABLED"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://api.sandbox.paypal.com/v1/notifications/webhooks/0PB53779DC6292337",
+          "rel": "self",
+          "method": "GET"
+        },
+        {
+          "href": "https://api.sandbox.paypal.com/v1/notifications/webhooks/0PB53779DC6292337",
+          "rel": "update",
+          "method": "PATCH"
+        },
+        {
+          "href": "https://api.sandbox.paypal.com/v1/notifications/webhooks/0PB53779DC6292337",
+          "rel": "delete",
+          "method": "DELETE"
+        }
+      ]
+    }
+  ]
+}

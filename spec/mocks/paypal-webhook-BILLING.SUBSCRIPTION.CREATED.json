@@ -1,0 +1,49 @@
+{
+  "id": "WH-3DU60555121276412-0YP761527P063343G",
+  "event_version": "1.0",
+  "create_time": "2023-03-05T02:34:28.840Z",
+  "resource_type": "subscription",
+  "resource_version": "2.0",
+  "event_type": "BILLING.SUBSCRIPTION.CREATED",
+  "summary": "Subscription created",
+  "resource": {
+    "start_time": "2023-03-05T02:34:28Z",
+    "quantity": "1",
+    "create_time": "2023-03-05T02:34:28Z",
+    "links": [
+      {
+        "href": "https://www.sandbox.paypal.com/webapps/billing/subscriptions?ba_token=BA-7VE79092X37212715",
+        "rel": "approve",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G",
+        "rel": "edit",
+        "method": "PATCH"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G",
+        "rel": "self",
+        "method": "GET"
+      }
+    ],
+    "id": "I-BW452GLLEP1G",
+    "plan_overridden": false,
+    "plan_id": "P-7W208885P5566903DMPZZ3CI",
+    "status": "APPROVAL_PENDING"
+  },
+  "links": [
+    {
+      "href": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events/WH-3DU60555121276412-0YP761527P063343G",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://api.sandbox.paypal.com/v1/notifications/webhooks-events/WH-3DU60555121276412-0YP761527P063343G/resend",
+      "rel": "resend",
+      "method": "POST"
+    }
+  ],
+  "controller": "public",
+  "action": "webhooks"
+}

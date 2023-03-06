@@ -38,6 +38,4 @@ RSpec.describe 'Subscriptions', type: :request do
     expect(users(:alice).active_subscription?).to be(true)
     expect(response.body).to match('I-BW452GLLEP1G')
   end
-
-  it 'downgrades the subscription on website cancellation'
 end

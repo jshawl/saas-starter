@@ -2,5 +2,7 @@
 
 # Base controller
 class ApplicationController < ActionController::Base
-  def index; end
+  def index
+    raise 'uh oh'
+  end
 end

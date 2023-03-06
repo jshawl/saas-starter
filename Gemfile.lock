@@ -226,6 +226,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.8.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.8.0)
+    sentry-ruby (5.8.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -287,6 +292,8 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 1.45)
   selenium-webdriver
+  sentry-rails (~> 5.8)
+  sentry-ruby (~> 5.8)
   simplecov
   spring
   sprockets-rails

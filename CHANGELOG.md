@@ -1,5 +1,11 @@
 # Changelog
 
+## [2023-03-06](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.06)
+
+- Add webhook support for PayPal activity
+  - Cancel subscriptions when a user cancels a subscription on paypal.com
+- Add exception monitoring with sentry
+
 ## [2023-03-02](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.02)
 
 - Add `docker compose` for local development

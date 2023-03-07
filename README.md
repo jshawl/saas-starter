@@ -9,51 +9,29 @@
 - Devise authentication and User model
 - Credit Card Payments with PayPal
 
-## Local Setup
-
-```
-git clone git@github.com:jshawl/saas-starter.git
-cd saas-starter
-docker compose up --build
-docker compose exec web bash
-```
-
-`$ EDITOR=vim rails credentials:edit` to add/edit secrets
-
-You'll need a [PayPal client id and secret](https://developer.paypal.com/docs/checkout/standard/integrate/) as well as a [SendGrid API Key](https://docs.sendgrid.com/api-reference/api-keys/create-api-keys) with full Mail access:
-
-```
-paypal:
-  client_id: abc123
-  secret: xyz789
-sendgrid: def456
-```
-
-```
-docker compose exec web bin/bundle exec rails db:create db:migrate
-```
-
-## Plan Management
-
-Plans default to $1 for getting up and running as quickly as possible. See `lib/pay_pal/plan.rb` for customizing plan creation options.
-
-```
-product = PayPal::Product.create!(name: 'Example product', description: 'example product description')
-plan = PayPal::Plan.create!(product_id: product.id, name: 'Example plan', description: 'example plan description')
-```
-
-### Running Tests
-
-```
-rake
-```
-
-## Docs
+## Documentation
 
 The docs site is a Jekyll site. You can cd into `docs/` and run `jekyll serve` to edit the site locally.
 
 During deployment, `jekyll build` is run inside the Dockerfile and copied into `public/docs`.
 
+View [the documentation](https://saas-starter.app/docs/).
+
+## Setup & Installation
+
+See <https://saas-starter.app/docs/getting-started/>
+
+## PayPal Plan Management
+
+See [Payments Configuration](https://saas-starter.app/docs/payments/)
+
+### Running Tests
+
+```
+rake
+# or
+bundle exec rspec
+```
 
 ### GitHub actions
 
@@ -61,7 +39,8 @@ Add a repository secret `RAILS_MASTER_KEY` on GitHub with the value from `config
 
 ## Monitoring & Maintenance
 
-```
-fly logs
-fly ssh console -C "app/bin/rails console"
-```
+See <https://saas-starter.app/docs/monitoring/>
+
+## License
+
+This project uses the [MIT License](https://opensource.org/license/mit/).

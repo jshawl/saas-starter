@@ -40,3 +40,7 @@ Add a repository secret `RAILS_MASTER_KEY` on GitHub with the value from `config
 ## Monitoring & Maintenance
 
 See <https://saas-starter.app/docs/monitoring/>
+
+## License
+
+This project uses the [MIT License](https://opensource.org/license/mit/).

@@ -35,6 +35,14 @@ body {
     color: #333;
 }
 
+details {
+    margin: 1rem 0;
+}
+
+details summary {
+    cursor: pointer;
+}
+
 .public {
     padding: 2rem 0;
 }

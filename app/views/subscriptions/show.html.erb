@@ -1,2 +1,8 @@
 <h2>Subscription <%= @subscription.id %></h2>
-<pre><%= JSON.pretty_generate(@subscription.to_h) %></pre>
+
+Last Payment: <%= @subscription['billing_info']['last_payment']['time'] %><br />
+Next Billing Date: <%= @subscription['billing_info']['next_billing_time'] %><br /><br />
+
+
+<%= render "shared/debug", data: @subscription.to_h %>
+

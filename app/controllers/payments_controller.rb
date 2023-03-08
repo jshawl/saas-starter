@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
   def capture
     order = PayPal::Order.capture!(params[:payment_id])
     current_user.payments.create!(paypal_id: order.id, details: order.to_h)
+    flash[:notice] = 'Payment created successfully!'
     render json: order.to_h
   end
 

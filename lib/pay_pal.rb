@@ -3,6 +3,7 @@
 # https://developer.paypal.com/api/rest/
 module PayPal
   BASE_URL = Rails.env.production? ? 'https://api-m.paypal.com' : 'https://api-m.sandbox.paypal.com'
+  WWW_URL = Rails.env.production? ? 'https://www.paypal.com' : 'https://www.sandbox.paypal.com'
   def self.handle_response(response)
     data = JSON.parse(response)
     # rubocop:disable Style/OpenStructUse

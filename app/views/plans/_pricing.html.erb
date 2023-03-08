@@ -41,7 +41,7 @@
             const response = await fetch(`/subscriptions/${data.subscriptionID}/confirm`, {
               method: "POST"
             })
-            console.log(data)
+            window.location = '/subscriptions/' + data.subscriptionID
           }
         }).render('#paypal-button-container');
         </script>

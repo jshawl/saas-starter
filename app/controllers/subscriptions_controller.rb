@@ -14,6 +14,7 @@ class SubscriptionsController < ApplicationController
     payment = current_user.payments.find_by_paypal_subscription_id(params[:subscription_id])
     subscription = PayPal::Subscription.find(params[:subscription_id])
     payment.update(details: subscription.to_h)
+    flash[:notice] = 'Subscription created successfully!'
     render json: subscription
   end
 

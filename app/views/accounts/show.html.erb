@@ -8,7 +8,7 @@
 <% if current_user.active_subscription %>
   Last Payment: <%= current_user.active_subscription.details['billing_info']['last_payment']['time'] %> <br />
   Next Billing Date: <%= current_user.active_subscription.details['billing_info']['next_billing_time'] %><br /><br />
-  <%= link_to "Manage Subscription", "https://www.sandbox.paypal.com/myaccount/autopay/connect/#{current_user.active_subscription.details['id']}", target: '_blank' %>
+  <%= link_to "Manage Subscription", "#{PayPal::WWW_URL}/myaccount/autopay/connect/#{current_user.active_subscription.details['id']}", target: '_blank' %>
   <%= render "shared/debug", data: current_user.active_subscription.details %>
 <% else %>
   <%= link_to "Subscribe", plans_path %>

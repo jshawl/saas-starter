@@ -28,8 +28,6 @@ See [Payments Configuration](https://saas-starter.app/docs/payments/)
 ### Running Tests
 
 ```
-rake
-# or
 bundle exec rspec
 ```
 

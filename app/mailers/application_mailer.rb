@@ -2,6 +2,6 @@
 
 # Base Mailer
 class ApplicationMailer < ActionMailer::Base
-  default from: 'mailer@saas-starter.app'
+  default from: "mailer@#{Rails.application.config.domain}"
   layout 'mailer'
 end

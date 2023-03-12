@@ -4,7 +4,14 @@ title: Getting Started
 nav_order: 1
 ---
 
+
+
 # Getting Started
+
+- [Local Setup](#local-setup)
+- [Getting a Clean Slate](#getting-a-clean-slate)
+  - [Without the Version Control History](#without-the-version-control-history)
+  - [Replacing References to SaaS Starter](#replacing-references-to-saas-starter)
 
 ## Local Setup
 
@@ -28,4 +35,26 @@ sendgrid: def456
 
 ```
 docker compose exec web bin/bundle exec rails db:create db:migrate
+```
+
+## Getting a Clean Slate
+
+So you want to use this template for a propietary project with no connection back
+to the `saas-starter` project? This section is for you.
+
+### Without the Version Control History
+
+Instead of [using the template](https://github.com/jshawl/saas-starter/generate),
+you can
+[download a zip file](https://github.com/jshawl/saas-starter/archive/refs/heads/ma.zip)
+of the source code or 
+[download a zipfile or tarball](https://github.com/jshawl/saas-starter/releases/latest)
+from the latest release.
+
+### Replacing References to SaaS Starter
+
+In order to find all the references, use `git grep`:
+
+```
+git grep -in starter
 ```

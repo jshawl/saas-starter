@@ -4,6 +4,6 @@
 class UserMailer < ApplicationMailer
   def welcome
     @user = params[:user]
-    mail(to: @user.email, subject: 'Welcome to SaaS Starter!')
+    mail(to: @user.email, subject: "Welcome to #{Rails.application.config.title}")
   end
 end

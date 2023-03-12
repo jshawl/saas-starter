@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SaaS Starter</title>
+    <title><%= Rails.application.config.title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script defer data-domain="saas-starter.app" src="https://plausible.io/js/script.js"></script>
+    <script defer data-domain="<%= Rails.application.config.domain %>" src="https://plausible.io/js/script.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container">
-        <h1><a class="navbar-brand" href="<%= root_path %>">SaaS Starter</a></h1>
+        <h1><a class="navbar-brand" href="<%= root_path %>"><%= Rails.application.config.title %></a></h1>
         <ul class="navbar-nav">
           <li><%= link_to "Docs", "/docs/" %></li>
           <% if current_user %>
@@ -41,7 +41,7 @@
         &copy; <%= Time.now.strftime("%Y") %> &middot;
         <%= link_to "Terms of Service", legal_terms_path %> &middot;
         <%= link_to "Privacy Policy", legal_privacy_path %> &middot;
-        <%= link_to "GitHub", "https://github.com/jshawl/saas-starter", target: "_blank" %>
+        <%= link_to "GitHub", Rails.application.config.github_url, target: "_blank" %>
       </div>
     </footer>
     <%= javascript_importmap_tags('/assets/application.js', shim: false) %>

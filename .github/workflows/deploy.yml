@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       environment: 
         name: production
-        url: https://saas-starter.fly.dev/
+        url: https://saas-starter.app/
       steps:
         - uses: actions/checkout@v2
         - uses: superfly/flyctl-actions/setup-flyctl@master

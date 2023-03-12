@@ -6,7 +6,7 @@ RSpec.describe 'index page', type: :feature do
   describe 'root path' do
     it 'shows something' do
       visit root_path
-      expect(page).to have_content('SaaS Starter')
+      expect(page).to have_content(Rails.application.config.title)
     end
   end
 end

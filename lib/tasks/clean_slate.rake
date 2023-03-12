@@ -1,14 +1,18 @@
-def run(desc, &block)
+def run(desc, opts = {}, &block)
   print "#{desc} "
   begin
-    yield
-    print "✅ "
+    yield if block_given?
+    if opts[:warn]
+      print "⚠️  "
+    else
+      print "✅ "
+    end
   rescue => e
     print "❌ "
     puts ""
     puts e.backtrace.join("\n")
   end
-  puts ""
+  puts "#{opts[:epilogue]}"
 end
 
 desc "Remove SaaS Starter specific code"
@@ -22,6 +26,9 @@ task :clean_slate do
       FileUtils.remove_dir(dir)
     end
   end
+
+  run "Update docs/_config.yml", warn: true, epilogue: "(not yet implemented)"
+
   run "Remove encrypted credentials" do
     files = Dir.glob("**/*.enc")
     files.each do |file|

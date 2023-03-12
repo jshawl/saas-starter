@@ -75,3 +75,11 @@ In order to find all the references, use `git grep`:
 ```
 git grep -in starter
 ```
+
+There's a rake task available to make this as easy as possible:
+
+```
+$ rake clean_slate
+```
+
+but you'll probably need to update a few things here or there.

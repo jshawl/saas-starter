@@ -35,4 +35,11 @@ task :clean_slate do
       File.delete(file)
     end
   end
+
+  puts "---"
+  puts "All done! 🥳"
+  puts "To check for any additional unhandled references, run:"
+  puts ""
+  puts "  git grep -in starter"
+  puts ""
 end

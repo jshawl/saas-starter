@@ -9,6 +9,7 @@ nav_order: 1
 # Getting Started
 
 - [Local Setup](#local-setup)
+- [Application Configuration](#application-configuration)
 - [Getting a Clean Slate](#getting-a-clean-slate)
   - [Without the Version Control History](#without-the-version-control-history)
   - [Replacing References to SaaS Starter](#replacing-references-to-saas-starter)
@@ -31,6 +32,22 @@ paypal:
   client_id: abc123
   secret: xyz789
 sendgrid: def456
+```
+
+## Application Configuration
+
+You can configure application constants like the domain name, title, and GitHub
+URL. All of these are configured inside of `config/application.rb`:
+
+```rb
+module Starter
+  class Application < Rails::Application
+    # ... all the other config.* lines ...
+    config.title = "SaaS Starter"
+    config.domain = "saas-starter.app"
+    config.github_url = "https://github.com/jshawl/saas-starter"
+  end
+end
 ```
 
 ```

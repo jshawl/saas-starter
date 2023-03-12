@@ -22,4 +22,10 @@ task :clean_slate do
       FileUtils.remove_dir(dir)
     end
   end
+  run "Remove encrypted credentials" do
+    files = Dir.glob("**/*.enc")
+    files.each do |file|
+      File.delete(file)
+    end
+  end
 end

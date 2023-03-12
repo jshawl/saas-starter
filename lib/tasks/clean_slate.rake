@@ -13,12 +13,13 @@ end
 
 desc "Remove SaaS Starter specific code"
 task :clean_slate do
-
   run "Truncate CHANGELOG.md" do
-    sleep 1
+    File.write(Rails.root.join("CHANGELOG.md"), "# Changelog\n")
   end
-  run "Truncate CHANGELOG.md again" do
-    sleep 1
-    raise 'hell'
+  run "Remove docs/*" do
+    dirs = Dir.glob('docs/*').select { |f| File.directory?(f) && !(f =~ /\/_/)}
+    dirs.each do |dir|
+      FileUtils.remove_dir(dir)
+    end
   end
 end

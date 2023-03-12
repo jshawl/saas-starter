@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased](https://github.com/jshawl/saas-starter/compare/v2023.03.12...HEAD)
+
+## [2023-03-12](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.12)
+
+- Add `config.domain`, `config.title`, `config.github_url` to `config/application.rb`
+- Add `rake clean_slate` to remove references to SaaS Starter
+- Add MIT license
+- Improve buyer checkout experience
+
 ## [2023-03-06](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.06)
 
 - Add webhook support for PayPal activity

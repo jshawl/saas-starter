@@ -19,6 +19,13 @@ class User < ApplicationRecord
     !!active_subscription
   end
 
+  def self.create_from_omniauth!(auth_info)
+    uid = auth_info['uid']
+    email = "#{SecureRandom.uuid}@#{Rails.application.config.domain}"
+    password = SecureRandom.uuid
+    find_by_uid(uid) || create!(email:, password:, uid:)
+  end
+
   private
 
   def send_welcome_email

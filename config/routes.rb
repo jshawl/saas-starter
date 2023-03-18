@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'
   end
+  get '/auth/auth0/callback' => 'auth0#callback'
+  get '/auth/failure' => 'auth0#failure'
+  get '/auth/logout' => 'auth0#logout'
 end

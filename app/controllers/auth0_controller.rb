@@ -5,10 +5,15 @@ class Auth0Controller < ApplicationController
   def callback
     auth_info = request.env['omniauth.auth']
     @user = User.create_from_omniauth!(auth_info)
-    @user.identities.find_or_create_by(
+    identity = @user.identities.find_or_create_by!(
       uid: auth_info['uid'],
-      provider: auth_info['provider'],
-      email: auth_info['info']['email']
+      provider: auth_info['provider']
+    )
+    identity.update!(
+      email: auth_info['info']['email'],
+      token: auth_info["credentials"]["token"],
+      refresh_token: auth_info["credentials"]["refresh_token"],
+      token_expires_at: auth_info["credentials"]["expires_at"]
     )
     sign_in @user
     redirect_to account_path

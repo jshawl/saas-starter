@@ -1,0 +1,35 @@
+{
+  "provider": "auth0",
+  "uid": "facebook|102309036154097",
+  "info": {
+    "name": "Saas Starter",
+    "nickname": "Saas Starter",
+    "email": null,
+    "image": "https://scontent-sea1-1.xx.fbcdn.net/v/t1.30497-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c15.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=1&ccb=1-7&_nc_sid=12b3be&_nc_ohc=u9XECV11lPoAX-kjHcZ&_nc_ht=scontent-sea1-1.xx&edm=AP4hL3IEAAAA&oh=00_AfCKkASez_EhPpODt2fcQNDMitlvmmeJCYIpk9LtTtibBA&oe=643F08D9"
+  },
+  "credentials": {
+    "token": "token-here",
+    "expires_at": 1679352437,
+    "expires": true,
+    "id_token": "id-token-here",
+    "token_type": "Bearer",
+    "refresh_token": null
+  },
+  "extra": {
+    "raw_info": {
+      "given_name": "Saas",
+      "family_name": "Starter",
+      "nickname": "Saas Starter",
+      "name": "Saas Starter",
+      "picture": "https://scontent-sea1-1.xx.fbcdn.net/v/t1.30497-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c15.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=1&ccb=1-7&_nc_sid=12b3be&_nc_ohc=u9XECV11lPoAX-kjHcZ&_nc_ht=scontent-sea1-1.xx&edm=AP4hL3IEAAAA&oh=00_AfCKkASez_EhPpODt2fcQNDMitlvmmeJCYIpk9LtTtibBA&oe=643F08D9",
+      "updated_at": "2023-03-19T22:47:15.855Z",
+      "iss": "https://dev-bq1e2jfmti25sv02.us.auth0.com/",
+      "aud": "91bDe1BHQqJXh8D13jErCCiOgXKEJzOG",
+      "iat": 1679266039,
+      "exp": 1679302039,
+      "sub": "facebook|102309036154097",
+      "sid": "vgnc5-nLHAAubh9M5i5ncRfNuZhPEHDS",
+      "nonce": "cc0c46a946d50a5acf027f8977740e42"
+    }
+  }
+}

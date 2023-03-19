@@ -1,11 +1,11 @@
 <div class='public'>
   <h2><%= Rails.application.config.title %> Demo</h2>
-  <%= button_to 'Login', '/auth/auth0', method: :post, data: { turbo: false } %>
   <p>This application is a live demo of the 
     <%= link_to "#{Rails.application.config.title} template repository", Rails.application.config.github_url %>.
   </p>
-  <%= link_to "Sign Up", new_user_registration_path, class: 'button cta' %>
-  <%= link_to "Log In", new_user_session_path, class: 'button cta-light' %><br /> <br />
+  <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %>
+  <%= link_to "Log In with Email", new_user_session_path, class: 'button cta-light' %><br /> <br />
+  <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>  
   <hr />
   <ul>
     <li><%= link_to "View the docs", "/docs" %></li>

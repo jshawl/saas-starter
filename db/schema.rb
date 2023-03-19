@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_200246) do
     t.string "uid", null: false
     t.string "provider", null: false
     t.string "email"
+    t.string "token"
+    t.string "refresh_token"
+    t.integer "token_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"

@@ -14,7 +14,7 @@ services:
     volumes:
       - .:/app
     environment:
-      RAILS_ENV: development
+      RAILS_ENV: docker
     ports:
       - "3000:3000"
     depends_on:

@@ -4,8 +4,12 @@
 class Auth0Controller < ApplicationController
   def callback
     auth_info = request.env['omniauth.auth']
-    session[:userinfo] = auth_info['extra']['raw_info']
     @user = User.create_from_omniauth!(auth_info)
+    @user.identities.find_or_create_by(
+      uid: auth_info['uid'],
+      provider: auth_info['provider'],
+      email: auth_info['info']['email']
+    )
     sign_in @user
     redirect_to account_path
   end

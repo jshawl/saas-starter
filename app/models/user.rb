@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :identities
   has_many :payments
 
   after_create :send_welcome_email
@@ -21,12 +22,14 @@ class User < ApplicationRecord
 
   def self.create_from_omniauth!(auth_info)
     uid = auth_info['uid']
-    email = "#{SecureRandom.uuid}@#{Rails.application.config.domain}"
+    email = auth_info['info']['email'] || "#{SecureRandom.uuid}@#{Rails.application.config.domain}"
     password = SecureRandom.uuid
     find_by_uid(uid) || create!(email:, password:, uid:)
   end
 
   private
+
+  
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now!

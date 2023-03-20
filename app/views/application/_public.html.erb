@@ -4,9 +4,7 @@
     <%= link_to "#{Rails.application.config.title} template repository", Rails.application.config.github_url %>.
   </p>
   <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %><br /> <br />
-  <% if params[:auth0] %>
-    <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>
-  <% end %>
+  <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>
   <hr />
   <ul>
     <li><%= link_to "View the docs", "/docs" %></li>

@@ -15,7 +15,8 @@ class Auth0Controller < ApplicationController
   end
 
   def failure
-    @error_msg = request.params['message']
+    flash[:notice] = "Authentication failed!"
+    redirect_to root_path
   end
 
   def logout; end

@@ -10,3 +10,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     }
   )
 end
+OmniAuth.configure do |config|
+  # Always use /auth/failure in any environment
+  config.failure_raise_out_environments = []
+end

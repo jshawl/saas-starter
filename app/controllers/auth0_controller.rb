@@ -15,7 +15,7 @@ class Auth0Controller < ApplicationController
   end
 
   def failure
-    flash[:notice] = "Authentication failed!"
+    flash[:notice] = 'Authentication failed!'
     redirect_to root_path
   end
 

@@ -9,12 +9,7 @@ class Auth0Controller < ApplicationController
       uid: auth_info['uid'],
       provider: auth_info['provider']
     )
-    identity.update!(
-      email: auth_info['info']['email'],
-      token: auth_info["credentials"]["token"],
-      refresh_token: auth_info["credentials"]["refresh_token"],
-      token_expires_at: auth_info["credentials"]["expires_at"]
-    )
+    identity.update!(identity_params(auth_info))
     sign_in @user
     redirect_to account_path
   end
@@ -24,4 +19,13 @@ class Auth0Controller < ApplicationController
   end
 
   def logout; end
+
+  private
+
+  def identity_params(auth_info)
+    { email: auth_info['info']['email'],
+      token: auth_info['credentials']['token'],
+      refresh_token: auth_info['credentials']['refresh_token'],
+      token_expires_at: auth_info['credentials']['expires_at'] }
+  end
 end

@@ -20,6 +20,10 @@ class User < ApplicationRecord
     !!active_subscription
   end
 
+  def service_account?
+    !!(email.match Rails.application.config.domain)
+  end
+
   def self.create_from_omniauth!(auth_info)
     uid = auth_info['uid']
     email = auth_info['info']['email'] || "#{SecureRandom.uuid}@#{Rails.application.config.domain}"
@@ -30,6 +34,8 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
+    return if service_account?
+
     UserMailer.with(user: self).welcome.deliver_now!
   end
 end

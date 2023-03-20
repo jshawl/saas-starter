@@ -1,5 +1,4 @@
 <h2>Account Details</h2>
-<p>Logged in as <%= current_user.email %></p>
 
 <hr />
 
@@ -11,11 +10,12 @@
   <%= link_to "Manage Subscription", "#{PayPal::WWW_URL}/myaccount/autopay/connect/#{current_user.active_subscription.details['id']}", target: '_blank' %>
   <%= render "shared/debug", data: current_user.active_subscription.details %>
 <% else %>
-  <%= link_to "Subscribe", plans_path %>
+  You are on the free plan.
+  <%= link_to "Upgrade", plans_path %>
 <% end %>
 
 <hr />
-<h3>Billing Details</h3>
+<h3>Make a one time payment</h3>
 
 <% if @payments.any? %>
   <%= link_to "View past payments", payments_path %><br />

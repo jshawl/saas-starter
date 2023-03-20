@@ -17,8 +17,13 @@ nav_order: 1
 ```
 git clone git@github.com:jshawl/saas-starter.git
 cd saas-starter
-docker compose up --build
+docker compose up -d --build
+# and
 docker compose exec web bash
+#or
+docker attach saas-starter-web-1
+# or
+rails s
 ```
 
 `$ EDITOR=vim rails credentials:edit` to add/edit secrets

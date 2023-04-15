@@ -1,5 +1,6 @@
 alice:
   email: alice@example.com
+  is_admin: true
 
 bob:
   email: bob@example.com

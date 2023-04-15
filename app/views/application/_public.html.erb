@@ -1,14 +1,16 @@
 <div class='public'>
-  <h2><%= Rails.application.config.title %> Demo</h2>
+  <h2>🚀 <%= Rails.application.config.title %> Demo</h2>
   <p>This application is a live demo of the 
     <%= link_to "#{Rails.application.config.title} template repository", Rails.application.config.github_url %>.
   </p>
-  <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %><br /> <br />
-  <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>
-  <hr />
   <ul>
-    <li><%= link_to "View the docs", "/docs" %></li>
-    <li><%= link_to "View the source code", Rails.application.config.github_url %></li>
-    <li><%= link_to "Use the template", "#{Rails.application.config.github_url}/generate" %></li>
+    <li>📖 <%= link_to "View the docs", "/docs" %></li>
+    <li>🔎 <%= link_to "View the source code", Rails.application.config.github_url %></li>
+    <li>⧉ <%= link_to "Use the template", "#{Rails.application.config.github_url}/generate" %></li>
   </ul>
+  <br />
+  <div class='flex'>
+    <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %>
+    <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>
+  </div>
 </div>

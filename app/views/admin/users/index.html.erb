@@ -1,0 +1,19 @@
+<h2>Admin</h2>
+
+<h3>
+<%= @users.count %>
+<%= "user".pluralize(@users.count) %>
+<% if @users.count > 1 %>
+  🥳
+<% else %>
+  😢
+<% end %>
+</h3>
+
+<ul>
+<% @users.each do |user| %>
+  <li><%= link_to user.email, admin_user_path(user) %> <small><%= user.created_at %></small></li>
+<% end %>
+</ul>
+
+<%= will_paginate @users %>

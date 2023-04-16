@@ -2,10 +2,14 @@
 
 module Admin
   # A namespace for admin pages
-  class AdminController < ApplicationController
+  class UsersController < ApplicationController
     before_action :authorize_user!
     def index
-      @users = User.all
+      @users = User.paginate(page: params[:page])
+    end
+
+    def show
+      @user = User.find(params[:id])
     end
 
     private

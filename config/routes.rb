@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/auth/logout' => 'auth0#logout'
 
   namespace :admin do
-    get '/' => 'admin#index'
+    get '/' => 'users#index'
+    resources :users, only: [:index, :show]
   end
 end

@@ -98,6 +98,8 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.12.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -302,6 +304,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.7)
@@ -316,6 +319,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  faker (~> 3.2)
   httparty
   importmap-rails
   listen (~> 3.3)
@@ -336,6 +340,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webmock
+  will_paginate (~> 3.3)
 
 RUBY VERSION
    ruby 3.1.1p18

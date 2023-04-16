@@ -54,3 +54,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'sentry-rails', '~> 5.8'
 gem 'sentry-ruby', '~> 5.8'
+
+gem 'faker', '~> 3.2'
+
+gem 'will_paginate', '~> 3.3'

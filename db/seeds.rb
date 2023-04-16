@@ -6,3 +6,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.where(is_admin: false).destroy_all
+
+100.times do
+  User.insert!({email: Faker::Internet.email, encrypted_password: SecureRandom.uuid})
+end

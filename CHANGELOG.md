@@ -1,6 +1,14 @@
 # Changelog
 
-## [Unreleased](https://github.com/jshawl/saas-starter/compare/v2023.03.22...HEAD)
+## [Unreleased](https://github.com/jshawl/saas-starter/compare/v2023.04.16...HEAD)
+
+## [2023-04-16](https://github.com/jshawl/saas-starter/releases/tag/v2023.04.16)
+
+- Add admin user interface
+- Add `is_admin` column and `User#is_admin?` method
+- Add seeds with `faker`
+- Fix security updates (nokogiri)
+
 
 ## [2023-03-22](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.22)
 

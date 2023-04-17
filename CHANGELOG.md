@@ -9,7 +9,6 @@
 - Add seeds with `faker`
 - Fix security updates (nokogiri)
 
-
 ## [2023-03-22](https://github.com/jshawl/saas-starter/releases/tag/v2023.03.22)
 
 - Add Auth0 as an authentication provider

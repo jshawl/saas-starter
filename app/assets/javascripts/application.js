@@ -1,3 +1,3 @@
-import other from './other'
-
-other()
+// import other from './other'
+// other()
+console.log('hello, world!')

@@ -134,7 +134,7 @@ footer {
 
 footer {
     border-top: 1px solid var(--secondary);
-    color: #ccc;
+    color: #666;
     font-size: .8rem;
     margin-top: 2rem;
 }

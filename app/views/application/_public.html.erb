@@ -1,5 +1,5 @@
 <div class='public'>
-  <h2>🚀 <%= Rails.application.config.title %> Demo</h2>
+  <h2>🌱 <%= Rails.application.config.title %> Demo</h2>
   <p>This application is a live demo of the 
     <%= link_to "#{Rails.application.config.title} template repository", Rails.application.config.github_url %>.
   </p>
@@ -9,6 +9,47 @@
     <li>⧉ <%= link_to "Use the template", "#{Rails.application.config.github_url}/generate" %></li>
   </ul>
   <br />
+  <div class='flex'>
+    <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %>
+    <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>
+  </div>
+  <hr />
+  <h3 class='text-align-center'>Production Grade Social Proof</h3>
+  <div class='flex logos align-items-center'>
+    <div><%= image_tag("Recharge-Color.svg", alt: "Recharge logo") %></div>
+    <div><%= image_tag("Umbrella-Color.svg", alt: "Umbrella logo") %></div>
+    <div><%= image_tag("Sitemark-Color.svg", alt: "Sitemark logo") %></div>
+  </div>
+  <hr />
+  <h3 class='text-align-center'>Features for Days</h3>
+  <div class='flex features'>
+    <div class='feature'>
+      <h4>Subscriptions</h4>
+      <ul>
+        <li>🕸 Webhook support</li>
+        <li>💰 Payment status methods</li>
+        <li>🧾 Zero-config notifications</li>
+      </ul>
+    </div>
+    <div class='feature'>
+      <h4>100% Code Coverage</h4>
+      <ul>
+        <li>🙈 Headless functional testing</li>
+        <li>👆 this counts as two features</li>
+        <li>☕️ Javascript testing, too</li>
+      </ul>
+    </div>
+    <div class='feature'>
+      <h4>Documentation</h4>
+      <ul>
+        <li>🩺 Jekyll in your rails app</li>
+        <li>1️⃣ Single deployment container</li>
+        <li>⚡️ Static FTW</li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <h3>Get Started</h3>
   <div class='flex'>
     <%= link_to "Sign Up with Email", new_user_registration_path, class: 'button cta' %>
     <%= button_to 'Log In with Socials', '/auth/auth0', method: :post, class: 'button cta-light' %>

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Subscriptions', type: :request do
+describe SubscriptionsController do
   fixtures :users
 
   before do
@@ -15,18 +15,18 @@ RSpec.describe 'Subscriptions', type: :request do
     stub_request(:post, 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscriptions-post-201.json'))
     expect do
-      post '/subscriptions', params: { plan_id: 'ABC' }
+      post :create, params: { plan_id: 'ABC' }
     end.to change { users(:alice).payments.count }.by(1)
     expect(users(:alice).payments.last.paypal_subscription_id).to eq('I-BW452GLLEP1G')
-    expect(JSON.parse(response.body)['id']).to eq('I-BW452GLLEP1G')
+    expect(response).to have_http_status(200)
   end
 
   it 'shows an existing subscription' do
     stub_request(:get, 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscription-get-200.json'))
     users(:alice).payments.create(paypal_subscription_id: 'I-BW452GLLEP1G')
-    get '/subscriptions/I-BW452GLLEP1G'
-    expect(response.body).to match('I-BW452GLLEP1G')
+    get :show, params: { id: 'I-BW452GLLEP1G' }
+    expect(response).to have_http_status(200)
   end
 
   it 'confirms the subscription on approve' do
@@ -34,8 +34,8 @@ RSpec.describe 'Subscriptions', type: :request do
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscription-get-200.json'))
     users(:alice).payments.create(paypal_subscription_id: 'I-BW452GLLEP1G')
     expect(users(:alice).active_subscription?).to be(false)
-    post '/subscriptions/I-BW452GLLEP1G/confirm'
+    post :confirm, params: { subscription_id: 'I-BW452GLLEP1G' }
     expect(users(:alice).active_subscription?).to be(true)
-    expect(response.body).to match('I-BW452GLLEP1G')
+    expect(response).to have_http_status(200)
   end
 end

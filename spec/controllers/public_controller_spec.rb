@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe PublicController, type: :controller do
+describe PublicController do
   it 'has a pricing page' do
     stub_request(:post, 'https://api-m.sandbox.paypal.com/v1/oauth2/token')
       .to_return(status: 200, body: '', headers: {})

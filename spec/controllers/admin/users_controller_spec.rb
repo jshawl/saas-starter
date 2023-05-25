@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Admin::UsersController, type: :controller do
+describe Admin::UsersController do
   fixtures :users
 
   describe '#index' do

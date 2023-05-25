@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_15_145356) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_000245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_145356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "to"
+    t.string "subject"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -47,9 +57,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_145356) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.boolean "is_admin", default: false, null: false
+    t.string "stripe_customer_id"
+    t.string "stripe_subscription_id"
+    t.boolean "marketing_opted_in", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "identities", "users"
+  add_foreign_key "notifications", "users"
 end

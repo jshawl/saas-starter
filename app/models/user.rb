@@ -41,10 +41,10 @@ class User < ApplicationRecord
   end
 
   def create_contact
-    sg = SendGrid::API.new(api_key: Rails.application.credentials.dig(:sendgrid))
+    sg = SendGrid::API.new(api_key: Rails.application.credentials[:sendgrid])
     data = {
       contacts: [
-        {email:}
+        { email: }
       ]
     }
     sg.client.marketing.contacts.put(request_body: data)

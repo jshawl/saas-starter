@@ -59,4 +59,4 @@ gem 'faker', '~> 3.2'
 
 gem 'will_paginate', '~> 3.3'
 
-gem "sendgrid-ruby", "~> 6.6"
+gem 'sendgrid-ruby', '~> 6.6'

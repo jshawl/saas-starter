@@ -27,8 +27,8 @@ RSpec.describe 'User' do
   end
 
   it 'creates a marketing contact if opted in' do
-    req = stub_request(:put, "https://api.sendgrid.com/v3/marketing/contacts").
-        to_return(status: 202, body: "")
+    req = stub_request(:put, 'https://api.sendgrid.com/v3/marketing/contacts')
+          .to_return(status: 202, body: '')
     User.create!(email: 'example@example.com', password: 'abc123', marketing_opted_in: true)
     expect(req).to have_been_requested.once
   end

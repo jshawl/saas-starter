@@ -54,3 +54,5 @@ jobs:
       with:
         name: code-coverage-report
         path: coverage
+    - name: Assert Code Coverage
+      run: rake assert_code_coverage

@@ -1,6 +1,11 @@
 # Changelog
 
-## [Unreleased](https://github.com/jshawl/saas-starter/compare/v2023.04.16...HEAD)
+## [Unreleased](https://github.com/jshawl/saas-starter/compare/v2023.05.24...HEAD)
+
+## [2023-05-24](https://github.com/jshawl/saas-starter/releases/tag/v2023.05.24)
+
+- Add a marketing opt-in checkbox to the signup form
+- Add a CI step and rake task to assert 100% code coverage
 
 ## [2023-04-16](https://github.com/jshawl/saas-starter/releases/tag/v2023.04.16)
 

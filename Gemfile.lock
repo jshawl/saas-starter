@@ -252,11 +252,14 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     sentry-rails (5.9.0)
       railties (>= 5.0)
       sentry-ruby (~> 5.9.0)
@@ -331,6 +334,7 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 1.45)
   selenium-webdriver
+  sendgrid-ruby (~> 6.6)
   sentry-rails (~> 5.8)
   sentry-ruby (~> 5.8)
   simplecov

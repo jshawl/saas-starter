@@ -58,3 +58,5 @@ gem 'sentry-ruby', '~> 5.8'
 gem 'faker', '~> 3.2'
 
 gem 'will_paginate', '~> 3.3'
+
+gem 'sendgrid-ruby', '~> 6.6'

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :payments
 
   after_create :send_welcome_email
+  after_create :create_contact, if: :marketing_opted_in?
 
   def active_subscription
     payments.subscriptions.active.to_a.first
@@ -37,5 +38,15 @@ class User < ApplicationRecord
     return if service_account?
 
     UserMailer.with(user: self).welcome.deliver_now!
+  end
+
+  def create_contact
+    sg = SendGrid::API.new(api_key: Rails.application.credentials[:sendgrid])
+    data = {
+      contacts: [
+        { email: }
+      ]
+    }
+    sg.client.marketing.contacts.put(request_body: data)
   end
 end

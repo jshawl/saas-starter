@@ -32,4 +32,8 @@ RSpec.describe Auth0Controller, type: :controller do
       get :callback
     end.to change { Identity.count }.by(1)
   end
+  it 'handles failures' do
+    get :failure
+    expect(response).to redirect_to(root_path)
+  end
 end

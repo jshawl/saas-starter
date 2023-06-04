@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     get 'terms', to: 'legal#terms'
     get 'privacy', to: 'legal#privacy'
   end
-  get '/auth/auth0/callback' => 'auth0#callback', as: :callback
-  get '/auth/failure' => 'auth0#failure'
-  get '/auth/logout' => 'auth0#logout'
+  get '/auth/auth0/callback' => 'auth0#callback', as: :auth0_callback
+  get '/auth/failure' => 'auth0#failure', as: :auth0_callback_failure
+  get '/auth/logout' => 'auth0#logout', as: :auth0_logout
 
   namespace :admin do
     get '/' => 'users#index'

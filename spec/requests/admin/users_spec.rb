@@ -8,12 +8,12 @@ describe Admin::UsersController do
   describe '#index' do
     it '404s for non-admins' do
       sign_in users(:bob)
-      expect { get :index }.to raise_error(ActionController::RoutingError, 'Not Found')
+      expect { get admin_users_path }.to raise_error(ActionController::RoutingError, 'Not Found')
     end
 
     it '200s for admins' do
       sign_in users(:alice)
-      get :index
+      get admin_users_path
       expect(@response.status).to eq(200)
     end
   end
@@ -21,7 +21,7 @@ describe Admin::UsersController do
   describe '#show' do
     it 'shows user details' do
       sign_in users(:alice)
-      get :show, params: { id: users(:alice) }
+      get admin_user_path(users(:alice).id)
       expect(@response.status).to eq(200)
     end
   end

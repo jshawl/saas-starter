@@ -8,7 +8,7 @@ describe PlansController do
       .to_return(status: 200, body: '', headers: {})
     stub_request(:get, 'https://api-m.sandbox.paypal.com/v1/billing/plans')
       .to_return(status: 200, body: '{"plans": []}', headers: {})
-    get :index
+    get plans_path
     expect(response).to have_http_status(200)
   end
 end

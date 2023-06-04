@@ -15,7 +15,7 @@ describe SubscriptionsController do
     stub_request(:post, 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscriptions-post-201.json'))
     expect do
-      post :create, params: { plan_id: 'ABC' }
+      post subscriptions_path(plan_id: 'ABC')
     end.to change { users(:alice).payments.count }.by(1)
     expect(users(:alice).payments.last.paypal_subscription_id).to eq('I-BW452GLLEP1G')
     expect(response).to have_http_status(200)
@@ -25,7 +25,7 @@ describe SubscriptionsController do
     stub_request(:get, 'https://api-m.sandbox.paypal.com/v1/billing/subscriptions/I-BW452GLLEP1G')
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscription-get-200.json'))
     users(:alice).payments.create(paypal_subscription_id: 'I-BW452GLLEP1G')
-    get :show, params: { id: 'I-BW452GLLEP1G' }
+    get subscription_path('I-BW452GLLEP1G')
     expect(response).to have_http_status(200)
   end
 
@@ -34,7 +34,7 @@ describe SubscriptionsController do
       .to_return(status: 200, body: File.read('spec/mocks/paypal-subscription-get-200.json'))
     users(:alice).payments.create(paypal_subscription_id: 'I-BW452GLLEP1G')
     expect(users(:alice).active_subscription?).to be(false)
-    post :confirm, params: { subscription_id: 'I-BW452GLLEP1G' }
+    post subscription_confirm_path(subscription_id: 'I-BW452GLLEP1G')
     expect(users(:alice).active_subscription?).to be(true)
     expect(response).to have_http_status(200)
   end

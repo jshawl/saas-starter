@@ -24,7 +24,7 @@ describe WebhooksController do
       .to_return(status: 200, body: File.read('spec/mocks/paypal-webhooks-verify-signature-post-200.json'))
 
     payload = JSON.parse(File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json'))
-    post :create, params: payload
+    post webhooks_path, params: payload
     expect(Payment.last.details['status']).to eq('CANCELLED')
   end
 
@@ -33,7 +33,7 @@ describe WebhooksController do
       .to_return(status: 200, body: File.read('spec/mocks/paypal-webhooks-verify-signature-failure-post-200.json'))
 
     expect do
-      post :create, params: JSON.parse(File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json'))
+      post webhooks_path, params: JSON.parse(File.read('spec/mocks/paypal-webhook-BILLING.SUBSCRIPTION.CANCELLED.json'))
     end.to raise_error('Webhook verification failed!')
 
     expect(users(:alice).payments.last.details['status']).to eq('ACTIVE')

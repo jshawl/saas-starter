@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe AccountsController, type: :controller do
+describe AccountsController do
   fixtures :users
   it 'has a show page' do
     sign_in users(:alice)
-    get :show
+    get account_path
     expect(response).to have_http_status(200)
   end
 end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Auth0Controller, type: :controller do
+describe Auth0Controller do
   before do
     @request.env['omniauth.auth'] = JSON.parse(File.read('spec/mocks/auth0-callback-facebook.json'))
   end
